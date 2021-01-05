@@ -21,7 +21,7 @@ In Terminal:
 1. `cd ~/Development/yourname-java-blue-material`
 2. `git add -A`
 3. `git commit -m "comment"`
-4. `git pull upstream master`
+4. `git pull upstream main`
 
 ## SUBMITTING INDIVIDUAL WORK
 
@@ -30,6 +30,6 @@ In Terminal:
 1. `cd ~/Development/yourname-java-blue-material`
 2. `git add -A`
 3. `git commit -m "comment"`
-4. `git push origin master`
+4. `git push origin main`
 
 Watch the output for errors!
