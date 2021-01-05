@@ -6,7 +6,7 @@ Java Blue Classroom
 <https://zoom.us/j/3948648450>
 
 Lecture Slides, Recordings, and Cheat Sheets  
-<https://drive.google.com/drive/folders/1ovrlDU4UNZ8WZ4c5k4ffbhunDwi7n9du?usp=sharing>
+<https://drive.google.com/drive/u/0/folders/1ovrlDU4UNZ8WZ4c5k4ffbhunDwi7n9du>
 
 Tech Elevator Student Book  
 <https://v2-2-techelevator-book.netlify.app/content/language.html>
