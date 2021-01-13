@@ -22,7 +22,25 @@ public class Exercises {
 	 monkeyTrouble(true, false) → false
 	 */
 	public boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
-		return false;
+		
+		// a smile and b smile then in trouble
+		if (aSmile == true && bSmile == true) {
+			return true;
+		}
+		// a not smile and b not smile in trouble
+		if (aSmile == false && bSmile == false) {
+			return true;
+		}
+		// a smile and b not smile not in trouble
+		if (aSmile == true && bSmile == false) {
+			return false;
+		}
+		// a not smile and b smile not in trouble 
+		if (aSmile == false && bSmile == true) {
+			return false;
+		}
+		return aSmile == bSmile;
+	
 	}
 
 	/*
@@ -71,13 +89,34 @@ public class Exercises {
 	}
 
 	/*
-	 7. Given 2 int values, return true if one is negative and one is positive. Except if the parameter
-	 "negative" is true, then return true only if both are negative.
+	 7. Given 2 int values, 
+	 	return true if one is negative and one is positive. 
+	 	Except if the parameter "negative" is true, 
+	 		then return true only if both are negative.
 	 posNeg(1, -1, false) → true
 	 posNeg(-1, 1, false) → true
 	 posNeg(-4, -5, true) → true
 	 */
 	public boolean posNeg(int a, int b, boolean negative) {
+		// IF negative == true and a is < 0 and b is < 0  then return true
+		if (negative) {
+			if (a < 0 && b < 0) {
+				return true;
+			}
+		}
+		
+		// If negative == false and a > 0 and b < 0 return true
+		// If negative == false and a < 0 and b > 0 return true
+		if ( negative == false) {
+			if ( a > 0 && b < 0) {
+				return true;
+			}
+			if ( a < 0 && b > 0 ) {
+				return true;
+			}
+		}
+		
+		// Otherwise return false
 		return false;
 	}
 
