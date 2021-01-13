@@ -119,7 +119,21 @@ public class Lecture {
 		*/
 
 		/*
-		25. Create a variable that holds a boolean called doneWithExercises and
+		 
+		 /* narrowing [(float) is the example of narrowing] */
+		 
+		  double numberOne = 5.6;
+		  float smallerType = (float) numberOne;
+		  
+		  //widening
+		  float smallNumbers = 2.0f;
+		  double largerTypes = smallNumbers;
+		  
+		  System.out.println(largerTypes);
+		  
+		  
+		  
+		/*25. Create a variable that holds a boolean called doneWithExercises and
 		set it to false.
 		*/
 
