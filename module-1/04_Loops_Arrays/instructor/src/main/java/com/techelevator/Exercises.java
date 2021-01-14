@@ -72,7 +72,7 @@ public class Exercises {
 	 reverse3([7, 0, 0]) → [0, 0, 7]
 	 */
 	public int[] reverse3(int[] nums) {
-		return new int[] {};
+		return new int[] { nums[2], nums[1], nums[0]};
 	}
 
 	/*
@@ -140,7 +140,18 @@ public class Exercises {
 	 has22([2, 1, 2]) → false
 	 */
 	public boolean has22(int[] nums) {
-		return false;
+		boolean has2Twos = false;
+		
+		for (int i = 0; i < nums.length - 1; i++) {
+			if ( nums[i] == 2) {
+				if (nums[i+1] == 2) {
+					has2Twos = true;
+					break;
+				}
+			}
+		}
+		
+		return has2Twos;
 	}
 	
 	/*
