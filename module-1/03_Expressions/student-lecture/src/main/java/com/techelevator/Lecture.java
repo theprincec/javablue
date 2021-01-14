@@ -56,11 +56,11 @@ public class Lecture {
     to one. Make sure it returns true when one equals one.
     */
     public boolean returnTrueWhenOneEqualsOne() {
-        if (1 == 1) {
+        if (1 != 1) {
             return false;
         }
 
-        return false;
+        return true;
     }
 
     /*
@@ -68,7 +68,7 @@ public class Lecture {
     greater than 5 and returns true if it is.
     */
     public boolean returnTrueWhenGreaterThanFive(int number) {
-        if (number > 5) {
+        if !(number > 5) {
 
         } else {
 

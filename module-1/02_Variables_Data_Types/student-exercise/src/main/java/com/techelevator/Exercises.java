@@ -70,16 +70,26 @@ public class Exercises {
         8. 2 toucans are sitting on a tree limb. 1 more toucan joins them. How
         many toucans in all?
         */
+		int intitialToucans = 2;
+		int joiningToucans = 1;
+		int totalNumberofToucans = intitialToucans - joiningToucans;
 
         /*
         9. There are 4 squirrels in a tree with 2 nuts. How many more squirrels
         are there than nuts?
         */
+		int squirrels = 4;
+		int nutInTree = 2;
+		int differenceOfSquirrelsAndNuts = squirrels - nutInTree;
 
         /*
         10. Mrs. Hilt found a quarter, 1 dime, and 2 nickels. How much money did
         she find?
         */
+		double amountInQuarters = (.25 * 1);
+		double amountInDimes = (.1 * 1);
+		double amountInNickels = (.05 * 2);
+		double totalAmountOfMoney = amountInQuarters + amountInDimes + amountInNickels;
 
         /*
         11. Mrs. Hilt's favorite first grade classes are baking muffins. Mrs. Brier's
@@ -87,38 +97,62 @@ public class Exercises {
         Mrs. Flannery's class bakes 17 muffins. How many muffins does first
         grade bake in all?
         */
+		int numberOfBriersMuffins = 18;
+		int numberOfMacadamsMuffins = 20;
+		int numberOfFlanneryMuffins = 17;
+		int TotalNumberOfMuffins = numberOfBriersMuffins+numberOfMacadamsMuffins+numberOfFlanneryMuffins;
+		
 
         /*
         12. Mrs. Hilt bought a yoyo for 24 cents and a whistle for 14 cents. How
         much did she spend in all for the two toys?
         */
+		double costOfYoyo = .24;
+		double costOfWhistle = .14;
+		double totalCostOfToys = costOfYoyo+costOfWhistle;
 
         /*
         13. Mrs. Hilt made 5 Rice Krispie Treats. She used 8 large marshmallows
         and 10 mini marshmallows.How many marshmallows did she use
         altogether?
         */
+		int largeMallows = 8;
+		int smallMallows = 10;
+		int totalNumberOfMallows = largeMallows + smallMallows;
 
         /*
         14. At Mrs. Hilt's house, there was 29 inches of snow, and Brecknock
         Elementary School received 17 inches of snow. How much more snow
         did Mrs. Hilt's house have?
         */
+		int hiltSnow = 29;
+		int brecknockSnow = 17;
+		int differenceOfSnow = hiltSnow - brecknockSnow;
 
         /*
         15. Mrs. Hilt has $10. She spends $3 on a toy truck and $2 on a pencil
         case. How much money does she have left?
         */
+		int startingMoney = 10;
+		int costOfTruck = 3;
+		int costOfPencil = 2;
+		int remainingMoney = startingMoney - costOfTruck - costOfPencil;
 
         /*
         16. Josh had 16 marbles in his collection. He lost 7 marbles. How many
         marbles does he have now?
         */
+		int startingMarbles = 16;
+		int lostMarbles = 7;
+		int remainingMarbles = startingMarbles - lostMarbles;
 
         /*
         17. Megan has 19 seashells. How many more seashells does she need to
         find to have 25 seashells in her collection?
         */
+		int initialNumberOfSeashells = 19;
+		int goalNumberOfSeashells = 25;
+		int numberOfSeashellsNeeded = goalNumberOfSeashells - initialNumberOfSeashells;
 
         /*
         18. Brad has 17 balloons. 8 balloons are red and the rest are green. How
@@ -129,98 +163,162 @@ public class Exercises {
         19. There are 38 books on the shelf. Marta put 10 more books on the shelf.
         How many books are on the shelf now?
         */
+		int initialNumberOfBooks = 38;
+		int addedBooks = 10;
+		int finalNumberOfSeashells = initialNumberOfBooks+addedBooks;
 
         /*
         20. A bee has 6 legs. How many legs do 8 bees have?
         */
+		int numberOfLegsPerBee = 6;
+		int numberOfBees = 8;
+		int totalNumberOfLegs = numberOfLegsPerBee * numberOfBees;
+		
 
         /*
         21. Mrs. Hilt bought an ice cream cone for 99 cents. How much would 2 ice
         cream cones cost?
         */
+		double coneCost = .99;
+		double numberOfCones = 2;
+		double totalCost = coneCost * numberOfCones;
 
         /*
         22. Mrs. Hilt wants to make a border around her garden. She needs 125
         rocks to complete the border. She has 64 rocks. How many more rocks
         does she need to complete the border?
         */
+		int initialNumberOfRocks = 64;
+		int numberOfRocksNeeded = 125;
+		int rocksNeeded = numberOfRocksNeeded - initialNumberOfRocks;
+		
 
         /*
         23. Mrs. Hilt had 38 marbles. She lost 15 of them. How many marbles does
         she have left?
         */
+		int initialNumberOfMarbles = 38;
+		int lostMarbless = 15;
+		int marblesNeeded = initialNumberOfMarbles - lostMarbless;
+		
 
         /*
         24. Mrs. Hilt and her sister drove to a concert 78 miles away. They drove 32
         miles and then stopped for gas. How many miles did they have left to drive?
         */
+		int totalMiles = 78;
+		int milesDriven = 32;
+		int milesToDrive = totalMiles - milesDriven;
 
         /*
         25. Mrs. Hilt spent 1 hour and 30 minutes shoveling snow on Saturday
         morning and 45 minutes shoveling snow on Saturday afternoon. How
         much total time did she spend shoveling snow?
         */
+		int minutesShoveledSat = 90;
+		int minutesShoveledSun = 45;
+		int totalMinuted = minutesShoveledSat + minutesShoveledSun;
 
         /*
         26. Mrs. Hilt bought 6 hot dogs. Each hot dog cost 50 cents. How much
         money did she pay for all of the hot dogs?
         */
+		int hotdogs = 3;
+		double cost = .5;
+		double costOfDogs = hotdogs * cost;
 
         /*
         27. Mrs. Hilt has 50 cents. A pencil costs 7 cents. How many pencils can
         she buy with the money she has?
         */
-
+		double walletTotal = .5;
+		double pencilCost = .07;
+		double numberOfPencils = (int) walletTotal/pencilCost;
+		
+		//System.out.println(numberOfPencils);
+		
         /*
         28. Mrs. Hilt saw 33 butterflies. Some of the butterflies were red and others
         were orange. If 20 of the butterflies were orange, how many of them
         were red?
         */
+		int totalButterflies = 33;
+		int orangeButterflies = 20;
+		int redButterflies = totalButterflies - orangeButterflies;
 
         /*
         29. Kate gave the clerk $1.00. Her candy cost 54 cents. How much change
         should Kate get back?
         */
+		int katesMoney = 1;
+		double candyCost = .54;
+		double remainngMoney = katesMoney - candyCost;
 
         /*
         30. Mark has 13 trees in his backyard. If he plants 12 more, how many trees
         will he have?
         */
+		int initTrees = 13;
+		int addTrees = 12;
+		int totalTrees = initTrees + addTrees;
 
         /*
         31. Joy will see her grandma in two days. How many hours until she sees
         her?
         */
+		int daysTil = 2;
+		int hrsPerDay = 24;
+		int hrsTil = daysTil * hrsPerDay;
+		
 
         /*
         32. Kim has 4 cousins. She wants to give each one 5 pieces of gum. How
         much gum will she need?
         */
+		int numOfCousins = 4;
+		int piecesOfGumPerCousin = 5;
+		int piecesNeeded = numOfCousins * piecesOfGumPerCousin;
 
         /*
         33. Dan has $3.00. He bought a candy bar for $1.00. How much money is
         left?
         */
+		double initMoney = 3.00;
+		double candyBarCost = 1.00;
+		double moneyLeft = initMoney - candyBarCost;
 
         /*
         34. 5 boats are in the lake. Each boat has 3 people. How many people are
         on boats in the lake?
         */
+		int numOfBoats = 5;
+		int pplPerBoats = 3;
+		int TotalNumOfPpl = numOfBoats * pplPerBoats;
 
         /*
         35. Ellen had 380 legos, but she lost 57 of them. How many legos does she
         have now?
         */
+		int legosAtStart = 380;
+		int legosLost = 57;
+		int legosLeft = legosAtStart - legosLost;
 
+		
         /*
         36. Arthur baked 35 muffins. How many more muffins does Arthur have to
         bake to have 83 muffins?
         */
+		int muffinsBaked = 35;
+		int muffinsGoal = 83;
+		int muffinsToBake = muffinsGoal - muffinsBaked;
 
         /*
         37. Willy has 1400 crayons. Lucy has 290 crayons. How many more
         crayons does Willy have then Lucy?
         */
+		int willysCrayon = 1400;
+		int lucyCrayon = 290;
+		int crayonDifference  = willysCrayon - lucyCrayon
 
         /*
         38. There are 10 stickers on a page. If you have 22 pages of stickers, how
