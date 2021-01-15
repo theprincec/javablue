@@ -94,6 +94,7 @@ public class Exercises {
 		return false;
 	}
 
+
 	/*
 	 7. Given 2 int values, return true if one is negative and one is positive. Except if the parameter
 	 "negative" is true, then return true only if both are negative.
@@ -102,7 +103,7 @@ public class Exercises {
 	 posNeg(-4, -5, true) → true
 	 */
 	public boolean posNeg(int a, int b, boolean negative) {
-		if ((a<0)^(b<0)) {
+		if (((a<0)^(b<0)) && !negative) {
 			return true;				
 		} else if ((negative == true) && ((a<0)&&(b<0))) {
 				return true;			
@@ -110,6 +111,7 @@ public class Exercises {
 		}
 		return false;
 	}
+	
 
 	/*
 	 8. Return true if the given non-negative number is a multiple of 3 or a multiple of 5.
@@ -186,15 +188,13 @@ public class Exercises {
 	 intMax(3, 2, 1) → 3
 	 */
 	public int intMax(int a, int b, int c) {
-		int numMax;
-		if (a>b && a>c) {
-			numMax = a;
-		} else if (b>a && b>c) {
-			numMax =  b;
+		if ((a>b) && (a>c)) {
+			return a;
+		} else if ((b>a) && (b>c)) {
+			return b;
 		} else {
-			numMax =  c;
+			return c;
 		}
-		return numMax;
 	}
 
 	/*
@@ -260,21 +260,16 @@ public class Exercises {
 	 dateFashion(5, 5) → 1
 	 */
 	public int dateFashion(int you, int date) {
-		if (you>=8) {
-			if (date>=8) {
-				return 2;
-			} else if (date>2) {
-				return 1;
-			}else {
-				return 0;
-			}
-		} else if (you<=2 || date <=2) {
+		if (you<=2 || date <=2) {
 			return 0;
+		} else if (you>=8 || date>=8) {
+				return 2;
 		}else {
-			
+			return 1;
 		}
-		return 0;
 	}
+
+	
 
 	/*
 	 18. The squirrels in Palo Alto spend most of the day playing. In particular, they play if the temperature
@@ -285,7 +280,19 @@ public class Exercises {
 	 squirrelPlay(95, true) → true
 	 */
 	public boolean squirrelPlay(int temp, boolean isSummer) {
-		return false;
+		if (isSummer) {
+			if (temp >59 && temp<101) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			if (temp >59 && temp<91) {
+				return true;
+			} else {
+				return false;
+			}			
+		}
 	}
 
     /*
