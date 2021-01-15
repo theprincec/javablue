@@ -220,6 +220,9 @@ public class Exercises {
 	 max1020(19, 11) → 19
 	 max1020(11, 9) → 11
 	 */
+	public int max1020(int a, int b) {
+		return 0;
+	} 
 
 	/*
 	 16. When squirrels get together for a party, they like to have cigars. A squirrel party is successful
