@@ -10,8 +10,13 @@ public class Exercises {
 	 sleepIn(false, true) → true
 	 */
 	public boolean sleepIn(boolean weekday, boolean vacation) {
-		return false;
+		if (!weekday || vacation) {
+			return true;
+		} else {
+			return false;
+		}
 	}
+
 
 	/*
 	 2. We have two monkeys, a and b, and the parameters aSmile and bSmile indicate if each is smiling.
@@ -22,6 +27,10 @@ public class Exercises {
 	 monkeyTrouble(true, false) → false
 	 */
 	public boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
+		if (aSmile == bSmile) {
+			return true;
+			
+		}
 		return false;
 	}
 
@@ -32,7 +41,11 @@ public class Exercises {
 	 sumDouble(2, 2) → 8
 	 */
 	public int sumDouble(int a, int b) {
-		return 0;
+		if (a == b) {
+			return (2*(a + b));
+		}else {
+			return a+b;
+		}
 	}
 
 	/*
@@ -45,7 +58,12 @@ public class Exercises {
 	 diff21(-10) → 31
 	 */
 	public int diff21(int n) {
-		return 0;
+		if (n <= 21) {
+			return 21 - n;
+		} else {
+			int number = 2*(21-n);
+			return Math.abs(number);
+		}
 	}
 
 	/*
@@ -57,6 +75,9 @@ public class Exercises {
 	 parrotTrouble(false, 6) → false
 	 */
 	public boolean parrotTrouble(boolean talking, int hour) {
+		if ( talking && (hour<7 || hour>20)) {
+			return true;
+		}
 		return false;
 	}
 
@@ -67,6 +88,9 @@ public class Exercises {
 	 makes10(1, 9) → true
 	 */
 	public boolean makes10(int a, int b) {
+		if ((a==10 || b==10) || (a+b==10)) {
+			return true;
+		}
 		return false;
 	}
 
@@ -78,6 +102,12 @@ public class Exercises {
 	 posNeg(-4, -5, true) → true
 	 */
 	public boolean posNeg(int a, int b, boolean negative) {
+		if ((a<0)^(b<0)) {
+			return true;				
+		} else if ((negative == true) && ((a<0)&&(b<0))) {
+				return true;			
+			
+		}
 		return false;
 	}
 
@@ -89,6 +119,9 @@ public class Exercises {
 	 or35(8) → false
 	 */
 	public boolean or35(int n) {
+		if((n>=0) && (n%3==0)||(n%5==0)){
+			return true;
+		}
 		return false;
 	}
 
@@ -99,6 +132,9 @@ public class Exercises {
 	 icyHot(2, 120) → false
 	 */
 	public boolean icyHot(int temp1, int temp2) {
+		if ((temp1<0 && temp2>100)||(temp2<0 && temp1>100)) {
+			return true;
+		}
 		return false;
 	}
 
@@ -109,6 +145,9 @@ public class Exercises {
 	 in1020(8, 99) → false
 	 */
 	public boolean in1020(int a, int b) {
+		if ((a>=10 && a<=20) || (b>=10 && b<=20)) {
+			return true;
+		}
 		return false;
 	}
 
@@ -120,6 +159,9 @@ public class Exercises {
 	 hasTeen(20, 10, 13) → true
 	 */
 	public boolean hasTeen(int a, int b, int c) {
+		if ((a >= 13 && a<=19)||(b >= 13 && b<=19)||(c >= 13 && c<=19)) {
+			return true;
+		}
 		return false;
 	}
 
@@ -131,6 +173,9 @@ public class Exercises {
 	 loneTeen(13, 13) → false
 	 */
 	public boolean loneTeen(int a, int b) {
+		if ((a >= 13 && a<=19)^(b >= 13 && b<=19)) {
+			return true;
+		}
 		return false;
 	}
 
@@ -141,7 +186,15 @@ public class Exercises {
 	 intMax(3, 2, 1) → 3
 	 */
 	public int intMax(int a, int b, int c) {
-		return 0;
+		int numMax;
+		if (a>b && a>c) {
+			numMax = a;
+		} else if (b>a && b>c) {
+			numMax =  b;
+		} else {
+			numMax =  c;
+		}
+		return numMax;
 	}
 
 	/*
@@ -152,6 +205,11 @@ public class Exercises {
 	 in3050(40, 50) → true
 	 */
 	public boolean in3050(int a, int b) {
+		if ((a>=30 && a<=40)&&(b>=30 && b<=40)) {
+			return true;
+		} else if ((a>=40 && a<=50)&&(b>=40 && b<=50)) {
+			return true;
+		}
 		return false;
 	}
 
@@ -162,9 +220,6 @@ public class Exercises {
 	 max1020(19, 11) → 19
 	 max1020(11, 9) → 11
 	 */
-	public int max1020(int a, int b) {
-		return 0;
-	}
 
 	/*
 	 16. When squirrels get together for a party, they like to have cigars. A squirrel party is successful
@@ -176,6 +231,17 @@ public class Exercises {
 	 cigarParty(70, true) → true
 	 */
 	public boolean cigarParty(int cigars, boolean isWeekend) {
+		if (isWeekend) {
+			if (cigars>=40) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			if (cigars>=40 && cigars<=60) {
+				return true;
+			}
+		}
 		return false;
 	}
 
@@ -191,6 +257,19 @@ public class Exercises {
 	 dateFashion(5, 5) → 1
 	 */
 	public int dateFashion(int you, int date) {
+		if (you>=8) {
+			if (date>=8) {
+				return 2;
+			} else if (date>2) {
+				return 1;
+			}else {
+				return 0;
+			}
+		} else if (you<=2 || date <=2) {
+			return 0;
+		}else {
+			
+		}
 		return 0;
 	}
 
