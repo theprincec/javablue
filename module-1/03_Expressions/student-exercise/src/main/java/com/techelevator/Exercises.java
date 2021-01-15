@@ -316,7 +316,23 @@ public class Exercises {
      yourCakeAndEatItToo(11.00, false) → "special"
      */
     public String yourCakeAndEatItToo(double mealAmount, boolean isBirthday) {
-        return "";
+        if (isBirthday){
+        	if (mealAmount+5 <= 10) {
+        		return "standard";
+        	} else if (mealAmount+5 <= 15) {
+        		return "special";
+        	} else {
+        		return "ginormous";
+        	}
+        } else {
+        	if (mealAmount <= 10) {
+        		return "standard";
+        	} else if (mealAmount <= 15) {
+        		return "special";
+        	} else {
+        		return "ginormous";
+        	}
+        }
     }
 
 	/*
@@ -327,7 +343,13 @@ public class Exercises {
 	 sortaSum(10, 11) → 21
 	 */
 	public int sortaSum(int a, int b) {
-		return 0;
+		int total = a + b;
+		if (total > 9 && total < 20) {
+			return 20;
+		} else {
+			return total;
+		}
+		
 	}
 
 	/*
