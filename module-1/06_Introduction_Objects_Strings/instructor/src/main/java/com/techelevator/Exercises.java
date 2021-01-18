@@ -36,15 +36,23 @@ public class Exercises {
 	}
 
 	/*
-	 Given an "out" string length 4, such as "<<>>", and a word, return a new string where the word is in the
-	 middle of the out string, e.g. "<<word>>". Note: use str.substring(i, j) to extract the String starting
+	 Given an "out" string length 4, such as "<<>>", and a word, 
+	 return a new string where the word is in the middle of the out string, e.g. "<<word>>". 
+	 Note: use str.substring(i, j) to extract the String starting
 	 at index i and going up to but not including index j.
 	 makeOutWord("<<>>", "Yay") → "<<Yay>>"
 	 makeOutWord("<<>>", "WooHoo") → "<<WooHoo>>"
 	 makeOutWord("[[]]", "word") → "[[word]]"
 	 */
 	public String makeOutWord(String out, String word) {
-		return null;
+		
+		// Get the first 2 characters of out
+		String first = out.substring(0, 2);
+		// Get the last 2 characters of out
+		String last = out.substring( out.length() - 2 );
+		
+		// Create new string with first2 + word + last2
+		return first + word + last;
 	}
 
 	/*
@@ -309,13 +317,29 @@ public class Exercises {
 	}
 
 	/*
-	 Given a string, return a string made of the chars at indexes 0,1, 4,5, 8,9 ... so "kittens" yields "kien".
+	 Given a string, 
+	 return a string made of the chars at indexes 0,1, 4,5, 8,9 ... so "kittens" yields "kien".
+	 
 	 altPairs("kitten") → "kien"
 	 altPairs("Chocolate") → "Chole"
 	 altPairs("CodingHorror") → "Congrr"
 	 */
 	public String altPairs(String str) {
-		return null;
+		String newStr = "";
+		
+		// Loop through the String
+		// Skip every 2nd set of numbers
+		// get the value and the value beside it and add it to the string
+		// be careful of the last index
+		for ( int i = 0; i < str.length(); i += 4) {
+			newStr += str.charAt(i);
+			if ( i + 1 < str.length()) {
+				newStr += str.charAt(i + 1);
+			}
+			
+		}
+		
+		return newStr;
 	}
 
 	/*
