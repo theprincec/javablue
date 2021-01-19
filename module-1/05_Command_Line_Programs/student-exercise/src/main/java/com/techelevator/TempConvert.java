@@ -6,19 +6,26 @@ public class TempConvert {
 
 	public static void main(String[] args) {
 		
+		
+		
+		
 		Scanner in = new Scanner(System.in);
+		//String nextStep = in.nextLine();
+		//while (!(nextStep.equals("/q"))){
+		
 		System.out.print("Enter the temperature and system (separated by a space): ");
 		String enteredTemp = in.nextLine();
 		String [] tempAsArray = enteredTemp.split(" ");
 		
+		
 		//double returnTemp = Double.parseDouble(tempAsArray[0]);
 		String returnTemp = tempAsArray[0];
-		String returnTempType = tempAsArray[1];
+		//String returnTempType = tempAsArray[1];
 		
 		System.out.println(returnTemp);
-		System.out.println(returnTempType);
+		//System.out.println(returnTempType);
 		
-		
+		String farenheit = "f", celsius = "c";
 		
 
 		
@@ -28,13 +35,18 @@ public class TempConvert {
 		double finalTemp = Double.parseDouble(returnTemp);
 		
 		
-		if (returnTempType == "f") {
+		if (tempAsArray[1].equals(farenheit)) {
 			finalTemp = (finalTemp * .55556) - 32;
-			System.out.print(returnTemp + " degrees");
+			System.out.print(finalTemp + " degrees Celsius");
 		} else {
-			finalTemp = Double.parseDouble((returnTemp * 1.4) - 32);
-			System.out.print(returnTemp + " degrees");
+			finalTemp = (finalTemp * 1.4) + 32;
+			System.out.print(finalTemp + " degrees Farenheit");
 		}
+		System.out.println("Do you want to determine any other temperatures. Enter any key to continue. Enter 'f' to exit");
+		String nextStep = in.nextLine();
+		
+		
+		
 
 	}
 
