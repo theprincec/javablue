@@ -230,7 +230,8 @@ public class Exercises {
 	 twoChar("java", 3) → "ja"
 	 */
 	public String twoChar(String str, int index) {
-		return null;
+		int nextIndex=index + 2;
+		return str.substring(index);
 	}
 
 	/*
