@@ -34,6 +34,7 @@ public class Exercises {
 	 *
 	 */
 	public String animalGroupName(String animalName) {
+
 		return null;
 	}
 
@@ -119,7 +120,8 @@ public class Exercises {
 	}
 
 	/*
-	 * Given an array of int values, return a Map<Integer, Integer> with a key for each int, with the value the
+	 * Given an array of int values, return a Map<Integer, Integer> 
+	 * with a key for each int, with the value the
 	 * number of times that int appears in the array.
 	 *
 	 * ** The lesser known cousin of the the classic wordCount **
@@ -130,7 +132,22 @@ public class Exercises {
 	 *
 	 */
 	public Map<Integer, Integer> integerCount(int[] ints) {
-		return null;
+		
+		Map<Integer, Integer> intCounts = new HashMap<Integer, Integer>();
+		
+		for (int i : ints) {
+			// Does this exist in the map
+			// If true, Add the values
+			// IF false, Add the key with a value of 1
+			if (intCounts.containsKey( i )) {
+				intCounts.put( i, intCounts.get(i) + 1);
+			} else {
+				intCounts.put( i, 1 );
+			}
+
+		}
+		
+		return intCounts;
 	}
 
 	/*

@@ -1,10 +1,14 @@
 package com.techelevator;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class Lecture {
 
@@ -18,18 +22,43 @@ public class Lecture {
 		System.out.println();
 
 		/* DECLARE AND INSTANTIATE A SET */
-
+		// HashSet does not maintain order
+		//Set<Integer> setOfNumbers = new HashSet<Integer>();
+		
+		// LinkedHashSet maintains Order of Insertion
+		//Set<Integer> setOfNumbers = new LinkedHashSet<Integer>();
+		
+		// TreeSet does not allow null and maintains the natural order of the data type it is holding
+		Set<Integer> setOfNumbers = new TreeSet<Integer>();
 		
 		/* ADD ITEMS TO THE SET */
-
+		setOfNumbers.add(1);
+		setOfNumbers.add(30);
+		setOfNumbers.add(10);
+		setOfNumbers.add(301);
+		setOfNumbers.add(301);  // duplicates are ignored without warning or error
+		setOfNumbers.add(5);
+		setOfNumbers.add(5708);
+		setOfNumbers.add(24332424);
 		
 		/* LOOP OVER A SET */
-
+		
+		for ( Integer number : setOfNumbers ) {
+			System.out.println(number);
+		}
 
 		
 		/*USE CASE:  USE A SET TO REMOVE DUPLICATES AND ORDER THE ARRAY */
 		String[] instructorWorkLog = {"Rachelle", "John", "Matt", "Kevin", "Rachelle", "Steve", "John", "Rachelle" };
 		
+		Set<String> workSet = new HashSet<String>();
+		for (String contributor : instructorWorkLog) {
+			workSet.add( contributor );
+		}
+		
+		for (String name : workSet) {
+			System.out.println( name );
+		}
 
 		
 		
@@ -39,28 +68,57 @@ public class Lecture {
 		System.out.println();
 		
 		/* DECLARING AND INSTANTIATING A MAP */
-
+		// Map<KeyDataType, ValueDataType>
+		Map<String, String> animalNoises = new HashMap<String, String>();
+		
 		
 		/* ADDING ITEMS TO A MAP */
-
+		// Items are added using .put(key, value)
+		animalNoises.put("Cow", "Moo");
+		animalNoises.put("Chicken", "Cluck");
+		animalNoises.put("Dog", "Bark");
+		animalNoises.put("Cat", "Meow");
+		// Keys must be unique, but the values do not
+		animalNoises.put("Lion", "Roar");
+		animalNoises.put("Duck", "Roar");
+		
 		
 		/* UPDATING AN ITEM IN A MAP */
 
+		// Use put with an existing key
+		animalNoises.put("Duck", "Quack");
 
 		/* RETRIEVING AN ITEM FROM A MAP */
-
-			
+		// Retrieve an item using get( key )
+		String catNoise = animalNoises.get("Cat");
+		System.out.println(catNoise);
+		
+		// If the key doesn't exist, then get() returns null
+		String wolfNoise = animalNoises.get("Wolf");
+		if (wolfNoise != null) {
+			System.out.println("The Wolf says " + wolfNoise);
+		} else {
+			System.out.println("Wolf does not exist in the map");
+		}
+		
 		/* REMOVING AN ITEM FROM A MAP */
 		
-		// If the key does not exists, the null returned
-
+		// Can remove a key/value pair using .remove(key)
+		// remove() returns the value and then removes the key/value from the map
+		String lionNoise = animalNoises.remove("Lion");
+		System.out.println("The Lion says " + lionNoise);
 		
+		// If the key does not exists, the null returned - lionNoiseAfterRemove will be null
+		String lionNoiseAfterRemove = animalNoises.remove("Lion");
+		System.out.println("The Lion now says " + lionNoiseAfterRemove);
 		
 		/* CHECK IF AN ITEM EXISTS */
 		// containsKey(key) returns TRUE if the KEY exists in the Map
-
+		boolean catExists = animalNoises.containsKey("Cat");  // returns true if the key is in the map
+		boolean wolfExists = animalNoises.containsKey("Wolf");  // returns false if the map does not contain the key
 		// containsValue(value) returns TRUE if the VALUE exists in the Map
-
+		boolean meowExists = animalNoises.containsValue("Meow"); // returns true if the value exists at least once in the map
+		boolean baaExists = animalNoises.containsValue("Baa"); // returns false if the value does not exists in the map
 		
 		System.out.println();
 		
@@ -68,7 +126,18 @@ public class Lecture {
 		/* LOOPING OVER A MAP */
 		// Loop through a map by looping through the Keys
 		// Then using the keys to get the value
-
+		for (String key : animalNoises.keySet()) {
+			System.out.println("Key: " + key);
+			System.out.println("Value: " + animalNoises.get(key) );
+		}
+		
+		
+		// Looping through a map by looping through the entry set
+		for (Entry<String, String> entry : animalNoises.entrySet()) {
+			System.out.println("Key: " + entry.getKey());
+			System.out.println("Value: " + entry.getValue() );
+		}
+		
 
 		System.out.println();
 		
@@ -79,8 +148,12 @@ public class Lecture {
 		accounts.put(56789, 200d);
 		
 		// Transfer half of Map 12345's money to account 56789
-		
+		double halfOfAccount12345 = accounts.get(12345) / 2.0;
+		accounts.put(12345, accounts.get(12345) - halfOfAccount12345);
+		accounts.put(56789, accounts.get(56789) + halfOfAccount12345);
 
+		
+		
 		
 		
 		System.out.println();
