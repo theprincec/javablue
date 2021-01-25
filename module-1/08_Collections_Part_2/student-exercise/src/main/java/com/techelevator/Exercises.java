@@ -46,18 +46,26 @@ public class Exercises {
 		groupName.put("dog","Pack");
 		groupName.put("crocodile","Float");
 		
-		String lowerCase = animalName.toLowerCase();
+		//String lowerCase = new String(animalName.toLowerCase());
 		
-		if (groupName.containsKey(lowerCase)) {
-			return groupName.get(lowerCase);
-					
-		} else {
+		if (animalName != null) {
+			String lowerCase = new String(animalName.toLowerCase());
+			if (groupName.containsKey(lowerCase)) {
+				//if (groupName.containsKey(lowerCase)) {
+					//String lowerCase = animalName.toLowerCase();
+				return groupName.get(lowerCase);
+			} else {
+				return "unknown";
+		}} else {
 			return "unknown";
+			}
+				
+				
 		}
+			
 		
 		//System.out.printLn( animalGroupName(pigeon) );
 
-	}
 
 	/*
 	 * Given an String item number (a.k.a. SKU), return the discount percentage if the item is on sale.
@@ -90,11 +98,15 @@ public class Exercises {
 		saleGroup.put("BEDROOM3434",0.60);
 		saleGroup.put("BATH0073",0.15);
 		
-		String saleCase = itemNumber.toUpperCase();
-		
-		if (saleGroup.containsKey(saleCase)) {
-			return saleGroup.get(saleCase);
-					
+		if (itemNumber!=null) {
+			String saleCase = itemNumber.toUpperCase();
+			
+			if (saleGroup.containsKey(saleCase)) {
+				return saleGroup.get(saleCase);
+						
+			} else {
+				return 0.00;
+			}
 		} else {
 			return 0.00;
 		}
@@ -112,9 +124,11 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
+		
+		//if 
 		int petersMoney = peterPaul.get("Peter");
 		int paulsMoney = peterPaul.get("Paul");
-		if ( petersMoney<1000 && petersMoney>0) {
+		if ( paulsMoney<1000 && petersMoney>0) {
 			int halfPetersMoney = petersMoney/2;
 			peterPaul.put("Peter", halfPetersMoney);
 			peterPaul.put("Paul", (paulsMoney + halfPetersMoney));
@@ -133,7 +147,7 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
-		if (peterPaul.get("Peter")>5000 && peterPaul.get("Paul")>10000) {
+		if (peterPaul.get("Peter")>=5000 && peterPaul.get("Paul")>=10000) {
 			int partnershipMoney = (peterPaul.get("Peter")/4) + (peterPaul.get("Paul")/4);
 			peterPaul.put("PeterPaulPartnership",partnershipMoney);
 		}
@@ -187,7 +201,7 @@ public class Exercises {
 		
 		
 		
-		return null;
+		return wordCounterMap;
 	}
 
 	/*
@@ -202,7 +216,20 @@ public class Exercises {
 	 *
 	 */
 	public Map<Integer, Integer> integerCount(int[] ints) {
-		return null;
+		Map<Integer, Integer> intCounterMap = new HashMap<Integer, Integer>();
+		for (int num : ints) {
+			if (!(intCounterMap.containsKey(num))) {
+				intCounterMap.put(num, 1);
+			} else {
+				int counter = intCounterMap.get(num) + 1;
+				intCounterMap.put(num, counter);
+			}
+				
+		}
+		
+		
+		
+		return intCounterMap;
 	}
 
 	/*
@@ -230,7 +257,18 @@ public class Exercises {
 	 */
 	public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse,
 			Map<String, Integer> remoteWarehouse) {
-		return null;
+		Map<String,Integer> newMap = new HashMap<String,Integer>();
+		for (String sku : mainWarehouse.keySet()) {
+			newMap.put(sku, mainWarehouse.get(sku));
+		}
+		for (String sku : remoteWarehouse.keySet()) {
+			if (!newMap.containsKey(sku)) {
+				newMap.put(sku, remoteWarehouse.get(sku));
+			} else {
+				newMap.put(sku, (remoteWarehouse.get(sku)+newMap.get(sku)));
+			}
+		}
+		return newMap;
 	}
 
 	/*
