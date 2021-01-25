@@ -22,7 +22,7 @@ public class Weather {
 		return this.tempInFahrenheit;
 	}
 	public void setTempInFahrenheit(int tempInFahrenheit) {
-		this.tempInFahrenheit = tempInFahrenheit;
+		this.tempInFahrenheit = tempInFahrenheit;	
 	}
 	
 	public String getForecast() {
