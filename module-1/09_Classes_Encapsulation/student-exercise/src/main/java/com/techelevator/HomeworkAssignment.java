@@ -31,12 +31,6 @@ public class HomeworkAssignment {
 		//private final static String[] PERCENT_TO_GRADE = {
 				//"A", "B", "C", "D"};
 
-		
-		//Map<Double,String> gradeMarks = new HashMap<Double, String>();
-		
-	
-		
-		
 		/*For 90% or greater, it returns "A"
 		For 80-89%, it returns "B"
 		For 70-79%, it returns "C"

@@ -40,10 +40,9 @@ public class Airplane {
 	
 	//setters
 	
-	public void  setPlaneNumber(String planeNumber) {
-		this.planeNumber=planeNumber;
-		
-	}
+	//public void  setPlaneNumber(String planeNumber) {
+		//this.planeNumber=planeNumber;	
+	//}
 
 	public void getBookedFirstClassSeats(int bookedFirstClassSeats) {
 		this.bookedFirstClassSeats=bookedFirstClassSeats;
@@ -84,13 +83,13 @@ public class Airplane {
 	//methods
 	
 	public boolean reserveSeats(boolean forFirstClass, int totalNumberOfSeats) {
-		if (forFirstClass) {
+		if (forFirstClass==true) {
 			bookedFirstClassSeats+=totalNumberOfSeats;
 		} 
-		if (!(forFirstClass)) {
+		else {
 			bookedCoachSeats+=totalNumberOfSeats;
 		}
-		if (bookedFirstClassSeats>=totalFirstClassSeats || bookedCoachSeats >=totalCoachSeats) {
+		if (bookedFirstClassSeats<totalFirstClassSeats || bookedCoachSeats<totalCoachSeats) {
 			return true;
 		} else {
 			return false;
