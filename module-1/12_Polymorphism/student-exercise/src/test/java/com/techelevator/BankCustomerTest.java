@@ -116,11 +116,11 @@ public class BankCustomerTest {
             addAccount.invoke(sut,three);
 
             Method getAccounts = sut.getClass().getMethod("getAccounts");
-            Object[] accounts = (Object[]) getAccounts.invoke(sut);
-            assertEquals(3, accounts.length);
-            assertEquals(one, accounts[0]);
-            assertEquals(two, accounts[1]);
-            assertEquals(three, accounts[2]);
+            List<Object> accounts = (List<Object>) getAccounts.invoke(sut);
+            assertEquals(3, accounts.size());
+            assertEquals(one, accounts.get(0));
+            assertEquals(two, accounts.get(1));
+            assertEquals(three, accounts.get(2));
         } catch (NoSuchMethodException e) {
             fail(e.getMessage());
         }
