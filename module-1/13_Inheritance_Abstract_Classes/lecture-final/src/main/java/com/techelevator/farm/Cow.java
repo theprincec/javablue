@@ -10,5 +10,10 @@ public class Cow extends FarmAnimal implements Sellable {
 	public int getPrice() {
 		return 1000;
 	}
+	
+	@Override
+	public String eat() {
+		return "The cow eats";
+	}
 
 }
