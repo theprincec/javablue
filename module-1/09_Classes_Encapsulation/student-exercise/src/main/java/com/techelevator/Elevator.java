@@ -12,29 +12,29 @@ public class Elevator {
 	public int getCurrentFloor() {
 		return currentFloor;
 	}
-	public void setCurrentFloor(int currentFloor) {
-		this.currentFloor = currentFloor;
-	}
+//	public void setCurrentFloor(int currentFloor) {
+//		this.currentFloor = currentFloor;
+//	}
 	public int getNumberOfFloors() {
 		return numberOfFloors;
 	}
-	public void setNumberOfFloors(int numberOfFloors) {
-		this.numberOfFloors = numberOfFloors;
-	}
+//	public void setNumberOfFloors(int numberOfFloors) {
+//		this.numberOfFloors = numberOfFloors;
+//	}
 	public boolean isDoorOpen() {
 		return doorOpen;
 	}
-	public void setDoorOpen(boolean doorOpen) {
-		this.doorOpen = doorOpen;
-	}
+//	public void setDoorOpen(boolean doorOpen) {
+//		this.doorOpen = doorOpen;
+//	}
 	
 	
 	
 	//constructors
-	public void Elevator(int numberOfLevels) {
+	public Elevator(int numberOfLevels) {
 		this.currentFloor = 1;
 		this.numberOfFloors = numberOfLevels;
-		this.doorOpen = false;
+		//this.doorOpen = false;
 	}
 	
 	
@@ -50,12 +50,12 @@ public class Elevator {
 		doorOpen=false ;
 	}
 	public void goUp(int desiredFloor) {
-		if (doorOpen || desiredFloor<=numberOfFloors) {
+		if ((!doorOpen) && desiredFloor<=numberOfFloors && desiredFloor>currentFloor) {
 			currentFloor=desiredFloor;
 		}
 	}
 	public void goDown(int desiredFloor) {
-		if (doorOpen || desiredFloor>1) {
+		if ((!doorOpen) && desiredFloor>=1 && desiredFloor<currentFloor) {
 			currentFloor=desiredFloor;
 		}
 	}

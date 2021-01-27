@@ -12,22 +12,12 @@ public class Employee {
 	
 
 	//constructors
-	public void Employee(int employeeId, String firstName, String lastName, double salary) {
+	public Employee(int employeeId, String firstName, String lastName, double salary) {
 		this.employeeId = employeeId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.annualSalary = salary;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	//getters
@@ -77,29 +67,9 @@ public class Employee {
 	}
 
 
-
-
-
-
-
-
-
-
-
-
-	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
-	}
-
-
-
-
-
-
-
-
-
-
+//	public void setEmployeeId(int employeeId) {
+//		this.employeeId = employeeId;
+//	}
 
 
 	public String getFirstName() {
@@ -107,29 +77,9 @@ public class Employee {
 	}
 
 
-
-
-
-
-
-
-
-
-
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-
-
-
-
-
-
-
-
-
+//	public void setFirstName(String firstName) {
+//		this.firstName = firstName;
+//	}
 
 
 	public String getLastName() {
@@ -137,90 +87,26 @@ public class Employee {
 	}
 
 
-
-
-
-
-
-
-
-
-
-
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-
-
-
-
-
-
-
-
-
-
 
 	public String getDepartment() {
 		return department;
 	}
 
-
-
-
-
-
-
-
-
-
-
-
 	public void setDepartment(String department) {
 		this.department = department;
 	}
-
-
-
-
-
-
-
-
-
-
-
 
 	public double getAnnualSalary() {
 		return annualSalary;
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-	public void setAnnualSalary(double annualSalary) {
-		this.annualSalary = annualSalary;
-	}
-
-
-
-
-
-
-
-
-
-
-
+//
+//	public void setAnnualSalary(double annualSalary) {
+//		this.annualSalary = annualSalary;
+//	}
 
 	//derived variables
 	public String getFullName() {

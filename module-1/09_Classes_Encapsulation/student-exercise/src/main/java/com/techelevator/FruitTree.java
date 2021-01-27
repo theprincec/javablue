@@ -19,13 +19,13 @@ public class FruitTree {
 		
 	}
 
-	public void setPiecesOfFruitLeft(int piecesOfFruitLeft) {
-		this.piecesOfFruitLeft =piecesOfFruitLeft  ;
-		
-	}
-	public void setTypeOfFruit(String typeOfFruit) {
-		this.typeOfFruit=typeOfFruit;
-	}
+//	public void setPiecesOfFruitLeft(int piecesOfFruitLeft) {
+//		this.piecesOfFruitLeft =piecesOfFruitLeft  ;
+//		
+//	}
+//	public void setTypeOfFruit(String typeOfFruit) {
+//		this.typeOfFruit=typeOfFruit;
+//	}
 		
 		
 		
@@ -38,6 +38,7 @@ public class FruitTree {
 	
 	public boolean pickFruit(int numberOfPiecesToRemove) {
 		if (numberOfPiecesToRemove<=piecesOfFruitLeft) {
+			piecesOfFruitLeft-=numberOfPiecesToRemove;
 			return true;
 		} else {
 			return false;
