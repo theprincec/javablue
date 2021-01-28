@@ -8,7 +8,8 @@ public class Lecture {
   
    
 	   /*
-	   8. Return true if the given non-negative number is a multiple of 3 or a multiple of 5.
+	   8. Return true if the given non-negative number 
+	   is a multiple of 3 or a multiple of 5.
 	   (Hint: Think "mod".)
 	   or35(3) → true
 	   or35(10) → true
@@ -52,6 +53,7 @@ public class Lecture {
 		 firstTwo("ab") → "ab"
 		 */
 		public String firstTwo(String str) {
+			if (str == null) return null;
 			if (str.length() < 2) return str;
 			return str.substring(0, 2);
 		}
