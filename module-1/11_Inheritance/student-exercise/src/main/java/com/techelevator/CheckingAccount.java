@@ -22,14 +22,16 @@ public class CheckingAccount extends BankAccount {
 		// TODO Auto-generated method stub
 		//return getBalance();
 		//if (getBalance()>-100) {
+		
+		
 			if ((getBalance()-amountToWithdraw)>-100) {
-				int newBalance = getBalance();
-				newBalance -= (amountToWithdraw);
+				//int newBalance = getBalance();
+				super.withdraw(amountToWithdraw );
 				//return newBalance ;
-				if (newBalance<0) {
-					newBalance -= 10;
+				if (getBalance()<0) {
+					super.withdraw(10);
 				}
-				return newBalance;
+				return getBalance();
 			} else {
 				return getBalance();
 			}
