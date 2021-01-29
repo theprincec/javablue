@@ -14,5 +14,10 @@ public class Chicken extends FarmAnimal implements Sellable {
 	public int getPrice() {
 		return 25;
 	}
+	
+	@Override
+	public String eat() {
+		return "The chicken peeks at food";
+	}
 
 }

@@ -3,8 +3,19 @@ package com.techelevator.farm;
 public class OldMacdonald {
 	public static void main(String[] args) {
 
-		FarmAnimal[] animals = new FarmAnimal[] { new Cow(), new Chicken(), new Sheep(), new Cat() };
+		FarmAnimal cow = new Cow();
+		cow.sleep();
+		Chicken chicken = new Chicken();
+		FarmAnimal cat = new Cat();
+		cat.sleep();
 		
+		/*
+		 * FarmAnimal cannot be instantiated because it is Abstract
+		 */
+		//FarmAnimal genericAnimal = new FarmAnimal("animal", "sound");
+		
+		FarmAnimal[] animals = new FarmAnimal[] { cow, chicken, new Sheep(), cat };
+
 		System.out.println("Animals on the farm: ");
 		for (FarmAnimal animal : animals) {
 			System.out.println(animal.getName());
@@ -12,8 +23,8 @@ public class OldMacdonald {
 		
 		System.out.println();
 		
-		Singable[] singers = new Singable[] { new Cow(), new Chicken(), 
-					new Sheep(), new Tractor(), new Cat(), new MusicBox() };
+		Singable[] singers = new Singable[] { cow, chicken, 
+					new Sheep(), new Tractor(), cat, new MusicBox()};
 
 		for (Singable singer : singers) {
 			String name = singer.getName();
