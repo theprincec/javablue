@@ -30,7 +30,7 @@ public class PolymorphismWithInterfaces {
 				System.out.println("Unknown Selection!");
 			}
 		}
-		
+
 		Map<String, Item> items = reader.read();
 		
 		for (Entry<String, Item> entry : items.entrySet()) {
