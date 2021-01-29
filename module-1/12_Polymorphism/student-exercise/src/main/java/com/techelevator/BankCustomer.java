@@ -50,7 +50,7 @@ public class BankCustomer {
 	//
 	public boolean isVip() {
 		for (Accountable account : accounts) {
-			if (account.getBalance() > 24999) {
+			if (account.getBalance() > 24999) { 
 				return true;
 			}
 		}
