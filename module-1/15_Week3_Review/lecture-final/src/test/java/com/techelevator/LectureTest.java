@@ -218,6 +218,8 @@ public class LectureTest {
 	public void third_of_5() {
 		double result = lecture.thirdDouble(5);
 		Assert.assertEquals(1.66, result, .009);
+		// assertEquals(expectedDouble, actualDouble, delta)
+		// delta - the allowed difference between the expected and actual
 	}
 	
 	/*
