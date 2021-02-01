@@ -41,9 +41,9 @@ public class BankCustomer {
 	
 	
 	
-	public void addAccount(Accountable newAccount) {
-		accounts.add(newAccount);
-	}
+//	public void addAccount(Accountable newAccount) {
+//		accounts.add(newAccount);
+//	}
 	
 	
 	
