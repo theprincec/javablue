@@ -160,19 +160,19 @@ public class Exercises {
 	 sum13([1, 2, 2, 1, 13, 3]) → 6
 	 sum13([1, 2, 2, 1, 13, 3, 4]) → 10
 	 */
-//	public int sum13(int[] nums) {
-//		for (int x=0;x<nums.length; x++) {
-//			int sum = 0;
-//			if (nums.length==0) {
-//				return 0;
-//			} else if (nums[x]==13) {
-//				break;
-//			}else {
-//				sum += nums[x];	
-//				return sum;
-//			}
-//		} return 0;
-//	}
+	public int sum13(int[] nums) {
+		for (int x=0;x<nums.length; x++) {
+			int sum = 0;
+			if (nums.length==0) {
+				return 0;
+			} else if (nums[x]==13) {
+				break;
+			}else {
+				sum += nums[x];	
+				return sum;
+			}
+		} return 0;
+	}
 
 	/*
 	 13. Given an array of ints, return true if the array contains a 2 next to a 2 somewhere.
