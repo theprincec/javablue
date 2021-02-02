@@ -1,0 +1,1 @@
+This text writes to the file using a buffer, but we must add our own carriage returns
