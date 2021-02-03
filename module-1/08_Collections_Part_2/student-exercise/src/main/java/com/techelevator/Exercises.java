@@ -149,7 +149,7 @@ public class Exercises {
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
 		if (peterPaul.get("Peter")>=5000 && peterPaul.get("Paul")>=10000) {
 			int partnershipMoney = (peterPaul.get("Peter")/4) + (peterPaul.get("Paul")/4);
-			peterPaul.put("PeterPaulPartnership",partnershipMoney);
+			peterPaul.put("Peter",partnershipMoney);
 		}
 		return peterPaul;
 		
