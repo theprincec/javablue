@@ -19,11 +19,11 @@ public class FlushingExample {
 		try ( PrintWriter printWriter = new PrintWriter (file );
 				BufferedWriter bufferedWriter = new BufferedWriter( printWriter ) ) {
 			
-//				while (true) {
+				while (true) {
 					bufferedWriter.write( message );
-//					Thread.sleep(500);
-//					bufferedWriter.flush();
-//				}
+					Thread.sleep(500);
+					bufferedWriter.flush();
+				}
 		}
 
 	}
