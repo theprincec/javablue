@@ -41,18 +41,22 @@ public class BankCustomer {
 	
 	
 	
-//	public void addAccount(Accountable newAccount) {
-//		accounts.add(newAccount);
-//	}
+	public void addAccount(Accountable newAccount) {
+		accounts.add(newAccount);
+	}
 	
 	
 	
 	//
 	public boolean isVip() {
+		int accountTotal = 0;
 		for (Accountable account : accounts) {
-			if (account.getBalance() > 24999) { 
-				return true;
-			}
+			
+			accountTotal += account.getBalance();	
+		}
+		
+		if (accountTotal > 24999) { 
+			return true;
 		}
 		return false;
 	}
