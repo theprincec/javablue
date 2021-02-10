@@ -6,7 +6,7 @@ select current_date as today
 select to_char(current_date, 'mm/dd/yyyy') as today
 ;
 -- how many days until Christmas this year - subtract two dates to get duration in days
-select '12/25/2019' - current_date as day_until_Christmas
+select '12/25/2021' - current_date as day_until_Christmas
 ;
 -- be aware of result when calculating days between dates() - date() 
 select  date('12/31/2019') - date('12/01/2019')  as days_in_December
