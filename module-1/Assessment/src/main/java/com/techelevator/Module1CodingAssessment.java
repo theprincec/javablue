@@ -30,14 +30,6 @@ public class Module1CodingAssessment {
 		System.out.println(checkedRoom);
 		System.out.println(testReservation.toString());
 		
-		
-		
-		
-		
-		
-		
-	
-	
 	
 	
 	}

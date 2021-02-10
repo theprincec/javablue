@@ -14,28 +14,7 @@ public class FizzWriter {
 		
 		File file = new File(FILE_NAME);
 		
-		
-		
-//		if (file.exists() || file.isFile()) {
-//			System.out.println("File already exists.");
-//		} 
-//		else {
-//			file.createNewFile();
-//		}
-		
-		
-		
 		file.createNewFile();
-		
-//		try (PrintWriter printWriter = new PrintWriter(file); 
-//				BufferedWriter bufferedWriter = new BufferedWriter(printWriter)) {
-//			
-//			(int i = 1 ; i <= UPPER_LIMIT ; i++) {
-//				
-//				bufferedWriter.write(fizzbuzz(i) + "\n");  // \n is a carriage return
-//				
-//			}
-//		}
 		
 		try (PrintWriter printWriter = new PrintWriter(file);
 				BufferedWriter bufferedWriter = new BufferedWriter(printWriter)) {
@@ -55,13 +34,7 @@ public class FizzWriter {
 		
 			
 	}
-		
-	
-	
-	
-	
-	
-		
+
 		
 	private static String getFizzbuzz(int i) {
 		

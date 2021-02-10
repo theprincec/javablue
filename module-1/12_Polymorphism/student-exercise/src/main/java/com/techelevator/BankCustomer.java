@@ -50,7 +50,7 @@ public class BankCustomer {
 	//
 	public boolean isVip() {
 		int accountTotal = 0;
-		for (Accountable account : accounts) {
+		for (Accountable account: accounts) {
 			
 			accountTotal += account.getBalance();	
 		}
