@@ -2,6 +2,11 @@
 
 -- 1. All of the films that Nick Stallone has appeared in
 -- (30 rows)
+SELECT film.title
+FROM actor
+JOIN film_actor ON film_actor.actor_id = actor.actor_id
+JOIN film ON film_actor.film_id = film.film_id
+WHERE actor.first_name = 'NICK' AND actor.last_name = 'STALLONE';
 
 -- 2. All of the films that Rita Reynolds has appeared in
 -- (20 rows)
@@ -42,10 +47,19 @@
 -- 14. The first and last name of the top ten customers ranked by dollars spent 
 -- (#1 should be “KARL SEAL” with 221.55 spent, #10 should be “ANA BRADLEY” with 174.66 spent)
 
--- 15. The store ID, street address, total number of rentals, total amount of sales (i.e. payments), and average sale of each store.
+-- 15. The store ID, street address, total number of rentals, total amount of sales (i.e. payments), 
+--     and average sale of each store.
 -- (NOTE: Keep in mind that an employee may work at multiple stores.)
 -- (Store 1 has 7928 total rentals and Store 2 has 8121 total rentals)
+SELECT store.store_id, address.address, COUNT(rental.inventory_id), SUM(payment.amount), round(AVG(payment.amount)::numeric, 2)
+FROM store
+JOIN address ON store.address_id = address.address_id
+JOIN inventory ON store.store_id = inventory.store_id
+JOIN rental ON rental.inventory_id = inventory.inventory_id
+JOIN payment ON payment.rental_id = rental.rental_id
+GROUP BY store.store_id, address.address
 
+;
 -- 16. The top ten film titles by number of rentals
 -- (#1 should be “BUCKET BROTHERHOOD” with 34 rentals and #10 should have 31 rentals)
 
