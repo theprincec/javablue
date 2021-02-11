@@ -74,7 +74,7 @@ There are several questions you should ask yourself:
 * Get a pen and paper or a whiteboard and a whiteboard marker.
 * Write down the list of entities you believe should be represented in the database.
 * Draw lines between the entities to represent the relationships between them.
-* Create a file called `projects.sql`.
+* Create a file called `employee-projects.sql`.
 * Inside of the file, take the database you designed in the first two steps, and begin adding the DDL statements to implement the design.
 * Add DML statements to populate the tables with the required data.
 * Create your database by running the script you created.
