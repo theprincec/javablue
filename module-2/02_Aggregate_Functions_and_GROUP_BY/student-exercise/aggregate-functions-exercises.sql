@@ -33,7 +33,7 @@ where continent = 'Africa';
 
 -- 4. The average life expectancy of countries in South America.
 -- (average life expectancy in South America: 70.9461)
-select avg(lifeexpectancy)
+select round(avg(lifeexpectancy)::numeric, 4)
 from country
 where continent =  'South America';
 
@@ -83,10 +83,6 @@ select round(avg(population), 4)
 from city
 where countrycode = 'USA';
 
---where countrycode = 'USA'
---group by countrycode
---order by
-
 
 -- 12. The average population of cities in China.
 -- (average city population in China: 484720.6997 approx.)
@@ -103,20 +99,11 @@ group by continent
 order by sum desc;
 
 
--- The average, sum, min, max population and count of cities in each state in the USA ordered by state name
-SELECT district, SUM(population), round(AVG(population), 4), MIN(population), MAX(population), COUNT(*)
-FROM city
-WHERE countrycode = 'USA'
-GROUP BY district
-ORDER BY district;
-
-
-
 -- 14. The highest population density (population divided by surface area) of all 
 -- countries in the world. 
 -- (highest population density in world: 26277.7777)
 
-select (population/surfacearea) as population_density
+select round((population/surfacearea)::numeric, 4) as population_density
 from country
 order by population_density desc
 limit 1;
@@ -125,7 +112,7 @@ limit 1;
 -- highest life expectancies in descending order. 
 -- (highest life expectancies in world: 83.5, 166.6666, "Andorra")
 
-select name, (population/surfacearea) as population_density, lifeexpectancy
+select name, lifeexpectancy, round((population/surfacearea)::numeric, 4) as population_density
 from country
 where lifeexpectancy is not null
 order by lifeexpectancy desc
@@ -136,17 +123,31 @@ limit 10;
 -- the world ordered by the absolute value of the difference. Display both 
 -- difference and absolute difference.
 -- (smallest difference: 1.00, 1.00, "Ecuador")
+select name, abs(gnp - gnpold) as gnp_difference
+from country
+where gnp is not null and gnpold is not null
+order by gnp_difference;
+
 
 
 -- 17. The average population of cities in each country (hint: use city.countrycode)
 -- ordered from highest to lowest.
 -- (highest avg population: 4017733.0000, "SGP")
+select countrycode, round(avg(population), 4) as avg_pop
+from city
+group by countrycode
+order by avg_pop desc;
 
 	
 
 	
 -- 18. The count of cities in each state in the USA, ordered by state name.
 -- (45 rows)
+select district, count(district) as cities_per_state
+from city
+where countrycode = 'USA'
+group by district
+order by district;
 	
 -- 19. The count of countries on each continent, ordered from highest to lowest.
 -- (highest count: 58, "Africa")

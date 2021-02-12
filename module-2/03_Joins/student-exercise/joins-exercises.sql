@@ -1,34 +1,84 @@
 -- The following queries utilize the "dvdstore" database.
 
+--SELECT *
+--FROM payment
+--JOIN customer ON payment.customer_id = customer.customer_id
+--WHERE payment_id = 16666;
+
+
 -- 1. All of the films that Nick Stallone has appeared in
 -- (30 rows)
+select title from film_actor
+join film on film_actor.film_id = film.film_id
+where actor_id = '44';
+
 
 -- 2. All of the films that Rita Reynolds has appeared in
 -- (20 rows)
+-- (30 rows)
+select title from film_actor
+join film on film_actor.film_id = film.film_id
+where actor_id = '135';
+
+
 
 -- 3. All of the films that Judy Dean or River Dean have appeared in
 -- (46 rows)
+select title from film_actor
+join film on film_actor.film_id = film.film_id
+where actor_id in ('143', '35');
 
 -- 4. All of the the ‘Documentary’ films
 -- (68 rows)
+select title from film_category
+join film on film_category.film_id = film.film_id
+where category_id in ('6');
+
 
 -- 5. All of the ‘Comedy’ films
 -- (58 rows)
+select title from film_category
+join film on film_category.film_id = film.film_id
+where category_id in ('5');
 
 -- 6. All of the ‘Children’ films that are rated ‘G’
 -- (10 rows)
+select title from film_category
+join film on film_category.film_id = film.film_id
+where category_id in ('3') and film.rating = 'G';
+
 
 -- 7. All of the ‘Family’ films that are rated ‘G’ and are less than 2 hours in length
 -- (3 rows)
+select title from film_category
+join film on film_category.film_id = film.film_id
+where category_id in ('8') and film.rating = 'G' and film.length < 120;
+
 
 -- 8. All of the films featuring actor Matthew Leigh that are rated ‘G’
 -- (9 rows)
+select * 
+from film_actor
+join film on film_actor.film_id = film.film_id
+where actor_id in ('103') and film.rating = 'G';
+
 
 -- 9. All of the ‘Sci-Fi’ films released in 2006
 -- (61 rows)
+select title from film_category
+join film on film_category.film_id = film.film_id
+where category_id in ('14') and film.release_year = '2006';
+
+
 
 -- 10. All of the ‘Action’ films starring Nick Stallone
 -- (2 rows)
+select * from film_category
+join film on film_category.film_id = film.film_id
+join film_actor on film_actor.film_id = film.film_id
+where category_id in ('1') and film_actor.actor_id='44';
+
+
 
 -- 11. The address of all stores, including street address, city, district, and country
 -- (2 rows)
