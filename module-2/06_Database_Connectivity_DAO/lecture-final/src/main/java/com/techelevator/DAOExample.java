@@ -31,7 +31,7 @@ public class DAOExample {
 		
 		dao.save(smallville);
 		
-		City theCity = dao.findCityById(smallville.getId());
+		City theCity = dao.findCityById(510);
 		
 	}
 
