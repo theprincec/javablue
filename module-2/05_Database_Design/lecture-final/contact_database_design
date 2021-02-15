@@ -1,0 +1,32 @@
+contact
+    contact_id PK
+    first_name
+    last_name
+
+email
+    email_id PK
+    contact_id FK
+    address
+    type
+    description
+
+phone
+    phone_id PK
+    contact_id FK
+    number
+    type
+    description
+
+contact_address
+    contact_id PK FK
+    address_id PK FK
+
+address
+    address_id  PK
+    line_1
+    line_2
+    city
+    district
+    postal_code
+    country_code
+    type
