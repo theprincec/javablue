@@ -47,14 +47,14 @@ public class JdbcEmailDaoIntegrationTest {
 		String sql = "INSERT INTO contact (contact_id, first_name, last_name) VALUES (DEFAULT, 'TestFirst', 'TestLast') RETURNING contact_id";
 		SqlRowSet result = jdbcTemplate.queryForRowSet(sql);
 		result.next();
-		contactId = result.getInt("contact_id");
+		this.contactId = result.getInt("contact_id");
 	}
 	
 	@Test
 	public void insert_email() {
 		// Arrange - create an email object and store it
 		Email email = new Email();
-		email.setContactId(contactId);
+		email.setContactId(this.contactId);
 		email.setEmailAddress("test@test.com");
 		email.setType("WORK");
 		email.setDescription(null);

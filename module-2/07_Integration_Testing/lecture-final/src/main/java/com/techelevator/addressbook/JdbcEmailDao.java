@@ -47,7 +47,7 @@ public class JdbcEmailDao implements EmailDao {
 
 	@Override
 	public void save(Email email) {
-		String sql = "INSERT INTO email (email_id, contact_id, email_address, type, description) VALUES (DEFAULT, ?, ?, ?, ?)";
+		String sql = "INSERT INTO email (email_id, contact_id, email_address, type, description) VALUES (DEFAULT, ?, ?, ?, ?) RETURNING email_id";
 		Integer emailId = jdbcTemplate.queryForObject(sql, Integer.class, email.getContactId(), email.getEmailAddress(), email.getType(), email.getDescription());
 		email.setEmailId(emailId);
 	}
