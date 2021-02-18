@@ -1,14 +1,33 @@
 package com.techelevator.view;
 
+import java.time.LocalDate;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Scanner;
 
 import com.techelevator.inventory.Slot;
+import com.techelevator.log.Log;
+import com.techelevator.log.LogDao;
 
 public class Menu {
 
 	private static final Scanner in = new Scanner(System.in);
+	
+	// Don't do this in the menu
+	public void exampleOfUsingLogInAnotherClass(LogDao log) {
+		Log logEntry = new Log();
+		logEntry.setAction("FROM MENU");
+		logEntry.setBeginningBalance(20);
+		logEntry.setEndingBalance(40);
+		logEntry.setEntryDate(LocalDate.now());
+		
+		log.save(logEntry);
+	}
+	
+	public int getAmountToAdd() {
+		System.out.print("Amount >>");
+		return in.nextInt();
+	}
 	
 	
 	public String getResponseFromUser(String question) {
