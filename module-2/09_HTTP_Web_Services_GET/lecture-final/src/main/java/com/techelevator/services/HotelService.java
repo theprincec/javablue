@@ -8,33 +8,50 @@ import org.springframework.web.client.RestTemplate;
 public class HotelService {
 
     private final String API_BASE_URL;
-
+    private RestTemplate restTemplate = new RestTemplate();
+    
     public HotelService(String apiURL) {
         API_BASE_URL = apiURL;
     }
 
     public Hotel[] listHotels() {
-    	return null;
+    	String endpointUrl = API_BASE_URL + "hotels";
+    	// Can get a Raw JSON response as a String
+    	//String rawResponse = restTemplate.getForObject(endpointUrl, String.class);
+    	
+    	Hotel[] hotels = restTemplate.getForObject(endpointUrl, Hotel[].class);
+    	
+    	return hotels;
     }
 
     public Review[] listReviews() {
-    	return null;
+    	
+    	Review[] reviews = restTemplate.getForObject(API_BASE_URL + "reviews", Review[].class);
+    	return reviews;
     }
 
     public Hotel getHotelById(int id) {
-    	return null;
+    	String endpointUrl = API_BASE_URL + "hotels/"  + id;
+    	Hotel hotel = restTemplate.getForObject(endpointUrl, Hotel.class);
+    	return hotel;
     }
 
     public Review[] getReviewsByHotelId(int hotelID) {
-    	return null;
+    	
+    	String endpointUrl = API_BASE_URL + "hotels/" + hotelID + "/reviews";
+    	
+    	return restTemplate.getForObject(endpointUrl, Review[].class);
     }
 
     public Hotel[] getHotelsByStarRating(int stars) {
-    	return null;
+    	String endpointUrl = API_BASE_URL + "hotels?stars=" + stars;
+    	return restTemplate.getForObject(endpointUrl, Hotel[].class);
     }
 
     public City getWithCustomQuery(){
-    	return null;
+    	String endpointUrl = "https://api.teleport.org/api/cities/geonameid:5128581/";
+    	City city = restTemplate.getForObject(endpointUrl, City.class);
+    	return city;
     }
 
 }

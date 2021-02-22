@@ -5,7 +5,7 @@ import com.techelevator.services.HotelService;
 
 public class App {
 
-    private static final String API_BASE_URL = "";
+    private static final String API_BASE_URL = "http://localhost:3000/";
 
     public static void main(String[] args) {
         int menuSelection = 999;

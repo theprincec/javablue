@@ -36,13 +36,28 @@ public class JdbcLogDao implements LogDao {
 		return entries;
 	}
 	
+	private Log getLogById(int id) {
+		Log log = null;
+		String sql = "SELECT id, action, beginning_balance, ending_balance, entry_date FROM log WHERE id = ?";
+		
+		SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, id);
+		
+		while (rows.next()) {
+			log = mapRowToLog( rows);
+		}
+		
+		return log;
+	}
+	
 	private Log mapRowToLog(SqlRowSet row) {
 		Log log = new Log();
 		log.setId( row.getLong("id") );
-		log.setAction( row.getString("action") );
+		
+		String actionFromSql = row.getString("action");;
+		
+		log.setAction( actionFromSql );
 		log.setBeginningBalance( row.getDouble("beginning_balance"));
 		log.setEndingBalance( row.getDouble("ending_balance"));
-		
 		if (row.getDate("entry_date") != null) {
 			log.setEntryDate( row.getDate("entry_date").toLocalDate() );
 		}
