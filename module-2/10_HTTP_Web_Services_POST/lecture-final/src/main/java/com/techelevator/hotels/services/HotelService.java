@@ -28,8 +28,32 @@ public class HotelService {
    * @return Reservation
    */
   public Reservation addReservation(String newReservation) {
-    // TODO: Implement method
-    return null;
+	  Reservation reservation = makeReservation(newReservation); // This line has nothing to do with an API
+	  
+	  /*
+	   * POST
+	   */
+	  
+	  String url = BASE_URL + "hotels/" + reservation.getHotelID() + "/reservations";
+	  
+	  // STEP 1: Instantiate a HttpHeaders and set the Content Type to application/json
+	  HttpHeaders headers = new HttpHeaders();
+	  headers.setContentType(MediaType.APPLICATION_JSON);
+	 
+	  // STEP 2: Instantiate a HttpEntity object, which will represent the request and
+	  //         on it will set the headers and the object to serialize to JSON.
+	  //         <T> - defines the data type the HttpEntity will serialize to JSON
+	  HttpEntity<Reservation> entity = new HttpEntity<Reservation>(reservation, headers);
+	  
+	  try {
+		  reservation = restTemplate.postForObject(url, entity, Reservation.class);
+	  } catch (RestClientResponseException e) {
+		  console.printError(e.getRawStatusCode() + " " + e.getStatusText());
+	  } catch (ResourceAccessException e) {
+		  console.printError(e.getMessage());
+	  }
+	  
+	  return reservation;
   }
 
   /**
@@ -40,8 +64,26 @@ public class HotelService {
    * @return
    */
   public Reservation updateReservation(String CSV) {
-    // TODO: Implement method
-    return null;
+	  Reservation reservation = makeReservation(CSV); // This line has nothing to do with an API
+	  
+	  /*
+	   * PUT
+	   */
+	  HttpHeaders headers = new HttpHeaders();
+	  headers.setContentType(MediaType.APPLICATION_JSON);
+
+	  HttpEntity<Reservation> entity = new HttpEntity<Reservation>(reservation, headers);
+	  
+	  try {
+		  // use the put() method
+		  restTemplate.put(BASE_URL + "reservations/" + reservation.getId(), entity);
+	  } catch (RestClientResponseException e) {
+		  console.printError(e.getRawStatusCode() + " " + e.getStatusText());
+	  } catch (ResourceAccessException e) {
+		  console.printError(e.getMessage());
+	  }
+	  
+	  return reservation;
   }
 
   /**
@@ -50,7 +92,18 @@ public class HotelService {
    * @param id
    */
   public void deleteReservation(int id) {
-    // TODO: Implement method
+	  /*
+	   * DELETE
+	   */
+	  try {
+		  // uses the delete() method on restTemplate
+		  restTemplate.delete(BASE_URL + "reservations/" + id);
+	  } catch (RestClientResponseException e) {
+		  console.printError(e.getRawStatusCode() + " " + e.getStatusText());
+	  } catch (ResourceAccessException e) {
+		  console.printError(e.getMessage());
+	  }
+    
   }
 
 
@@ -62,7 +115,24 @@ public class HotelService {
    */
   public Hotel[] listHotels() {
     Hotel[] hotels = null;
-    // TODO: Implement method
+    try {
+    	hotels = restTemplate.getForObject(BASE_URL + "hotels", Hotel[].class);
+    } catch (RestClientResponseException e) {
+    	/*
+    	 * RestClientResponseException is the parent class of the exceptions thrown
+    	 * when a 400 or 500 HTTP Response code is returned.  
+    	 * 
+    	 * rawStatusCode contains the HTTP Response Code number (404)
+    	 * statusText contains the description of the code (Not Found)
+    	 */
+    	console.printError(e.getRawStatusCode() + " " + e.getStatusText());
+    } catch (ResourceAccessException e) {
+    	/*
+    	 * ResourceAccessException occurs when a server can not be connected to due to 
+    	 * either the server not running, not existing, or a network/internet problem
+    	 */
+    	console.printError(e.getMessage());
+    }
     return hotels;
   }
 
