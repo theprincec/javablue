@@ -10,7 +10,8 @@ public class App {
 
     	int menuSelection;
         int auctionId = -1;
-
+        
+        
         ConsoleService consoleService = new ConsoleService();
         AuctionService auctionService = new AuctionService();
 
