@@ -66,18 +66,72 @@ public class AuctionService {
     }
 
     public Auction add(String auctionString) {
-        // place code here
-        return null;
+    	
+    	Auction auction = makeAuction(auctionString);
+    	
+    	String url = API_URL;
+    	
+    	HttpHeaders headers = new HttpHeaders();
+  	  	headers.setContentType(MediaType.APPLICATION_JSON);
+  	  	
+  	  	HttpEntity<Auction> entity = new HttpEntity<Auction>(auction, headers);
+  	  	
+  	  try {
+  		  
+		  auction = restTemplate.postForObject(url, entity, Auction.class);
+		  
+	  } catch (RestClientResponseException e) {
+		  console.printError(e.getRawStatusCode() + " " + e.getStatusText());
+		  return null;
+	  } catch (ResourceAccessException e) {
+		  console.printError(e.getMessage());
+		  return null;
+	  }
+	  
+	  return auction;
+  	  
     }
 
     public Auction update(String auctionString) {
-        // place code here
-        return null;
+        // http://localhost:3000/auctions/{id}
+    	
+    	Auction auction = makeAuction(auctionString);
+    	
+    	String url = API_URL + "/" + auction.getId();
+    	
+    	HttpHeaders headers = new HttpHeaders();
+  	  	headers.setContentType(MediaType.APPLICATION_JSON);
+  	  	
+  	  	HttpEntity<Auction> entity = new HttpEntity<Auction>(auction, headers);
+  	  	
+  	  	
+  	  	try {
+  		  
+  	  		restTemplate.put(url, entity);
+		  
+  	  	} catch (RestClientResponseException e) {
+  	  		console.printError(e.getRawStatusCode() + " " + e.getStatusText());
+  	  		return null;
+  	  	} catch (ResourceAccessException e) {
+  	  		console.printError(e.getMessage());
+  	  		return null;
+  	  	}
+  	  	
+  	  	return auction;
     }
 
     public boolean delete(int id) {
-    	// place code here
-    	return false; 
+    	try {
+  		  // uses the delete() method on restTemplate
+  		  restTemplate.delete(API_URL + "/" + id);
+  	  } catch (RestClientResponseException e) {
+  		  console.printError(e.getRawStatusCode() + " " + e.getStatusText());
+  		  return false;
+  	  } catch (ResourceAccessException e) {
+  		  console.printError(e.getMessage());
+  		  return false;
+  	  }
+    	return true; 
     }
 
     private HttpEntity<Auction> makeEntity(Auction auction) {
