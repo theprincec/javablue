@@ -41,13 +41,15 @@ public class AuctionController {
     	return dao.create(auction);
     }
     
-    @RequestMapping( method=RequestMethod.GET)
-    public List<Auction> searchByTitle(@RequestParam (required=false) String searchTerm){
-    	List<Auction> auctions = new ArrayList<>();
-    	auctions = dao.searchByTitle(searchTerm);
-    	
-    	return auctions;
-    }
+    
+    //causing errors
+//    @RequestMapping( method=RequestMethod.GET)
+//    public List<Auction> searchByTitle(@RequestParam (required=false) String searchTerm){
+//    	List<Auction> auctions = new ArrayList<>();
+//    	auctions = dao.searchByTitle(searchTerm);
+//    	
+//    	return auctions;
+//    }
     
     
     
