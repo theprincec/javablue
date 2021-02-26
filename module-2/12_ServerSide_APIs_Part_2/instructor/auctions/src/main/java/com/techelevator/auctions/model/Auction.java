@@ -7,6 +7,7 @@ import javax.validation.constraints.NotBlank;
 public class Auction {
 
     private int id;
+    @NotBlank(message="The field `title` should not be blank.")
     private String title;
     private String description;
     private String user;
