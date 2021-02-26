@@ -6,6 +6,9 @@ import javax.validation.constraints.NotBlank;
 
 public class Auction {
 
+	/*
+	 * Must use single ticks not quotes 
+	 */
     private int id;
     @NotBlank(message="The field `title` should not be blank.")
     private String title;
