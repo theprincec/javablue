@@ -25,10 +25,9 @@ where continent = 'Africa';
 -- 3. The per capita GNP (i.e. GNP multipled by 1000000 then divided by population) of all countries in the 
 -- world sorted from highest to lowest. Recall: GNP is express in units of one million US Dollars 
 -- (highest per capita GNP in world: 37459.26)
---select gnp * 10000000000000 / population
---from country;
---select gnp
---from country;
+select name, round(((gnp*1000000) / population), 2) as per_cap_gnp from country
+where population >0 and gnp>0
+order by per_cap_gnp desc; 
 
 
 -- 4. The average life expectancy of countries in South America.
@@ -151,14 +150,32 @@ order by district;
 	
 -- 19. The count of countries on each continent, ordered from highest to lowest.
 -- (highest count: 58, "Africa")
+select continent, count(name) from country
+where continent = 'Africa'
+group by continent;
+
 	
 -- 20. The count of cities in each country ordered from highest to lowest.
 -- (largest number of  cities ib a country: 363, "CHN")
+select count(name), countrycode from city
+group by countrycode
+order by count desc;
+
 	
 -- 21. The population of the largest city in each country ordered from highest to 
 -- lowest.
 -- (largest city population in world: 10500000, "IND")
+select max(population), countrycode from city
+group by countrycode
+order by max desc; 
+
+
 
 -- 22. The average, minimum, and maximum non-null life expectancy of each continent 
 -- ordered from lowest to highest average life expectancy. 
 -- (lowest average life expectancy: 52.5719, 37.2, 76.8, "Africa")
+
+select continent, avg(lifeexpectancy), min(lifeexpectancy), max(lifeexpectancy) from country
+where lifeexpectancy is not null
+group by continent
+order by avg desc;
