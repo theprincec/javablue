@@ -13,13 +13,13 @@ import org.springframework.stereotype.Component;
 import com.techelevator.cities.dao.CityDao;
 import com.techelevator.cities.model.City;
 
-
+@Component
 public class JdbcCityDao  implements CityDao {
 
 	private JdbcTemplate jdbcTemplate;
 	
-	public JdbcCityDao(DataSource dataSource) {
-		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	public JdbcCityDao(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
 	}
 	
 	@Override

@@ -1,11 +1,18 @@
 package com.techelevator.cities.model;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+
 public class City {
 	
 	private long id;
+	@NotBlank(message="name is required")
 	private String name;
+	@NotBlank(message="countryCode is required")
 	private String countryCode;
+	@NotBlank(message="district is required")
 	private String district;
+	@Min(value=0, message="population must be at least 0")
 	private int population;
 	
 	public long getId() {

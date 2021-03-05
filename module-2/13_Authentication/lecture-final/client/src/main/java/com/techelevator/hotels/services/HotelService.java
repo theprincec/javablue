@@ -35,8 +35,23 @@ public class HotelService {
       throw new HotelServiceException(INVALID_RESERVATION_MSG);
     }
 
-    // TODO: Fix Me
-    throw new HotelServiceException("NOT IMPLEMENTED");
+    // STEP 1: Create the entity for POST with the JWT (Authorization header)
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(MediaType.APPLICATION_JSON);
+    headers.setBearerAuth(AUTH_TOKEN);
+    HttpEntity<Reservation> entity = new HttpEntity<Reservation>(reservation, headers);
+    
+    // STEP 2: Build the URL
+    String url = BASE_URL + "hotels/" + reservation.getHotelID() +  "/reservations";
+    
+    // STEP 3: Make the POST request using exchange( url, HttpMethod, Entity, response type)
+    try {
+    	reservation  = restTemplate.exchange(url, HttpMethod.POST, entity, Reservation.class).getBody();
+    } catch (RestClientResponseException e) {
+    	throw new HotelServiceException(e.getRawStatusCode() + " : " + e.getResponseBodyAsString());
+    }
+    
+    return reservation;
   }
 
   /**
