@@ -13,10 +13,10 @@ div {
 #idExample {
     background-color: gray;
 }
-
 .descendentOne {
     background-color: orange;
 }
+
 
 div {
     border-style: solid;
@@ -29,3 +29,7 @@ span {
     margin: 10px;
     padding: 10px;
 }
+
+
+
+
