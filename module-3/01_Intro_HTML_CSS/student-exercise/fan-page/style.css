@@ -28,8 +28,11 @@ h1 {
     font-weight: 1100;
 }
 
+
 img {
-    height: 50%;
+    min-width: 200px;
+    max-width: 92%;
+    /* height: 50%; */
 }
 tr {
     margin: 200px;
@@ -49,3 +52,44 @@ div q, div a {
 /* div  a {
     display: block;
 } */
+.movie-specs{
+    display: inline-block;
+    width: 33%;
+    padding: 20px;
+    max-height: 500px;
+    overflow: hidden;
+    
+}
+.text {
+    padding-left: 50px;
+    padding-right: 50px;
+    line-height: 2;
+    background: linear-gradient( rgb(219, 22, 22), black);
+    color: white;
+}
+#container {
+    vertical-align: top;
+}
+table {
+    margin-top: 100px;
+    display: none;
+}
+.section {
+    margin-top: 80px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2em;
+    
+}
+
+#new {
+    background-color: #090909;
+    padding: 4px;
+    margin-top: 40px;
+}
+
+.section h3{
+
+    color: rgb(219, 22, 22);
+    font-size: 2em;
+}
