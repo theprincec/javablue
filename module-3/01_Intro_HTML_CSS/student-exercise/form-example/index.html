@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian-Please Share</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Christian's Form</h1>
+        <p>Welcome to the internet's favorite person</p>
+    </header>
+    <!-- <nav>
+        <a href="index.html">Back to Menu</a>
+    </nav> -->
+    <main>
+        <h2>Info Form</h2>
+        <!-- 
+            action = the URL to send the request 
+            method = GET or POST, default is GET
+        -->
+        
+        
+        <form action="/api/reservations" method="POST">
+            <div>
+                <label for="emailAddress">Email:</label>
+                <input type="text" id="emailAddress" name="emailAddress" />
+            </div> 
+            <div>
+                <label for="birthDate">Date of Birth:</label>
+                <input id="birthDate" name="birthDate" type="date" />
+            </div>
+            <div>
+                <label for="favColor">Favorite Color:</label>
+                <input type="text" id="favColor" name="favColor" />
+            </div>
+            <div>
+                <label for="favNum">Favorite Number:</label>
+                <input type="number" id="favNumber" name="favNumber" />
+            </div>
+            <div>
+                <label for="favFood">Favorite Food:</label>
+                <select id="favFood" name="favFood">
+                    <option value="A">Mac n Cheese</option>
+                    <option value="B">Ketchup</option>
+                    <option value="O">Other</option>
+                </select>
+            </div>
+            
+           
+            <div>
+                <input type="submit" value="Share your valuable info with me" />
+            </div>
+        </form>
+    </main>
+</body>
+</html>
