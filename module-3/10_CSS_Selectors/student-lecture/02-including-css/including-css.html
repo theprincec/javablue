@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Including CSS</title>
+    <!-- CSS can be inluded using a link to an external style sheet -->
+    <link rel="stylesheet" href="external.css" />
+    
+    <!-- CSS can be inluded using internal css in a style tag in the head element -->
+    <style>
+        div.internal {
+            background-color: blue; 
+            margin: 10px; 
+            font-size: 1.1rem; 
+            padding: 5px; 
+            color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+    <!-- CSS can be included using the style attribute on a tag -->
+    <div style="background-color: red; margin: 10px; font-size: 1.1rem; padding: 5px; color: whitesmoke;">
+        This DIV was styled using inline CSS
+    </div>
+    <div class="internal">
+        This DIV was styled using internal CSS
+    </div>
+    <div class="external">
+        This DIV was styled using external CSS
+    </div>
+</body>
+</html>
