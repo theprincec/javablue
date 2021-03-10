@@ -82,15 +82,46 @@ where category_id in ('1') and film_actor.actor_id='44';
 
 -- 11. The address of all stores, including street address, city, district, and country
 -- (2 rows)
+select address, city, district, country
+from store
+join address on store.address_id = address.address_id
+join city on city.city_id = address.city_id
+join country on city.country_id = country.country_id;
 
 -- 12. A list of all stores by ID, the store’s street address, and the name of the store’s manager
 -- (2 rows)
 
+select  store.store_id, address, concat(first_name, ' ', last_name) as name
+from store
+join address on store.address_id = address.address_id
+join staff on staff.staff_id = store.manager_staff_id;
+
 -- 13. The first and last name of the top ten customers ranked by number of rentals 
 -- (#1 should be “ELEANOR HUNT” with 46 rentals, #10 should have 39 rentals)
+--name, count(customer.customer_id)
+
+select first_name, last_name, count(customer.customer_id) 
+from customer
+join rental on customer.customer_id = rental.customer_id
+group by customer.customer_id
+order by count desc
+limit 10;
+
 
 -- 14. The first and last name of the top ten customers ranked by dollars spent 
 -- (#1 should be “KARL SEAL” with 221.55 spent, #10 should be “ANA BRADLEY” with 174.66 spent)
+select * from payment;
+
+select concat(first_name, ' ', last_name) as name, sum(amount)--first_name, last_name, count(customer.customer_id) 
+from customer
+join payment on customer.customer_id = payment.customer_id
+--join rental on customer.customer_id = rental.customer_id
+--join payment on rental.customer_id = payment.payment_id
+group by customer.customer_id
+order by sum desc
+limit 10;
+
+
 
 -- 15. The store ID, street address, total number of rentals, total amount of sales (i.e. payments), and average sale of each store.
 -- (NOTE: Keep in mind that an employee may work at multiple stores.)

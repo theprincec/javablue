@@ -40,6 +40,7 @@ public class LoginExample {
 		
 		// Step 4: call getBody() on the Request Entity to get the deserialized object from the request
 		Map responseValues = responseEntity.getBody();
+		//System.out.println(responseValues); // remo
 		
 		// Step 5: Store the token for later use
 		String token = (String) responseValues.get("token");

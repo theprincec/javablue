@@ -7,10 +7,13 @@
 -- The results should be ordered alphabetically by state name and then by city 
 -- name. 
 -- (19 rows)
-select (name || ', ' || district) AS name_and_state
-from city 
-where countrycode = 'USA' and district in ('Pennsylvania', 'West Virginia', 'Kentucky', 'Indiana','Michigan')
-order by district, city;
+
+select * --(name || ', ' || district) AS name_and_state
+from city;
+--where countrycode = 'USA' and district in ('Pennsylvania', 'West Virginia', 'Kentucky', 'Indiana','Michigan')
+--order by district, city;
+
+
 
 
 -- 2. The name, country code, and region of all countries in Africa.  The name and

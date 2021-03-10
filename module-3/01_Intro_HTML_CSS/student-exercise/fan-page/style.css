@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
+
+
+* {
+    box-sizing: border-box;
+
+}
+
+body {
+    /* background: linear-gradient(red, red, #333); */
+    background-color: rgb(219, 22, 22);
+    background-size: cover;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 16px;
+    margin: 0 100px;
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Akaya Telivigala', cursive;
+    color: White;
+    margin: 0;
+    padding-bottom: 0;
+    font-size: 5em;
+    font-weight: 1100;
+}
+
+img {
+    height: 50%;
+}
+tr {
+    margin: 200px;
+}
+
+td {
+    margin: 200px;
+}
+
+div q, div a {
+    color: white;
+    display: block;
+    margin: 20px;
+    /* padding: 20px; */
+}
+
+/* div  a {
+    display: block;
+} */
