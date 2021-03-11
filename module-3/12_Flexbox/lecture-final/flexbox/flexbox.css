@@ -7,24 +7,37 @@ section#flex-example {
     width: 75%;
     background-color: gray;
     margin: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
 }
 
 
 div#one {
+    order: 2;
     background-color: red;
+    flex-basis: 200px;
+    flex-shrink: .6;
+    align-self: center;
     /* height: 75px;
     line-height: 50px; */
 }
 
 div#two {
+    order: 3;
     background-color: green;
+    flex-basis: 90px;
+    align-self: flex-end;
     /* height: 150px;
     line-height: 150px; */
 }
 
 div#three {
     background-color: blue;
-
+    flex-basis: 90px;
+    flex-grow: 2;
 }
 
 
