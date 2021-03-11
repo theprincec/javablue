@@ -15,3 +15,75 @@ ul {
   margin: 0;
   padding: 0;
 }
+aside {
+  width: 200px;
+  border-right: 1px solid rgba(0, 173, 238, 0.4);
+  height: 100vh;
+  padding: 0 20px;
+  position: fixed;
+}
+
+aside img{
+  height: 120px;
+  display: block;
+  margin: 0 auto; 
+}
+main {
+  margin-left: 200px;
+  padding: 0 20px;
+}
+
+aside li {
+  list-style: none;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(0, 173, 238, 0.4);
+  margin: 10px auto;
+  width: 80%;
+  padding-bottom: 10px;
+  line-height: 2;
+}
+
+aside li a{
+  text-decoration: none;
+
+}
+aside li a:hover{
+  text-decoration: underline;
+}
+
+header {
+  height: 120px;
+}
+
+header img {
+  height: 80%;
+}
+.banner {
+  width: 100%;
+  display: block;
+}
+
+section div {
+  display: inline-block;
+  width: 33%;
+  padding-right:20px;
+  margin-top: 20px;
+
+}
+
+section h2 {
+  color: #8CC36F;
+}
+
+section h2 i{
+  margin-right: 10px;
+}
+
+#what-we-do, #our-work {
+  
+  border-right: 1px solid rgba(170, 239, 135, 0.8);
+}
+#our-work, #contact-us {
+  padding-left: 20px;
+}
