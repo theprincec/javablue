@@ -56,6 +56,7 @@ header img {
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
         "name name picture"
+        "quote quote picture"
         "text text specs"
         "code code code"
         "main main side";
@@ -80,8 +81,12 @@ header img {
     /* padding: 10px; */
 
 }
-#headline, #student-quote {
+#headline{
     grid-area: name;
+}
+
+#student-quote{
+    grid-area: quote;
 }
 #student-picture {
     grid-area: picture;
@@ -126,11 +131,12 @@ header img {
         grid-template-areas:
             "name name"
             "quote pic"
+            "quote description"
             "text text"
             "code code"
             "main main";
         grid-row-gap: 20px;
-        grid-column-gap: 50px;
+        grid-column-gap: 35px;
         align-items: center;
         /* padding: 10px; */
     }
@@ -143,7 +149,7 @@ header img {
             "code-area1 code-area2"
             "code-area3 code-area4";
         grid-row-gap: 20px;
-        grid-column-gap: 50px;
+        grid-column-gap: 20px;
 
     }
 
@@ -163,7 +169,7 @@ header img {
 
 
     #student-contact{
-        grid-area: pic;
+        grid-area: description;
         text-align: center;
     }
     #student-profile{
@@ -196,6 +202,7 @@ header img {
             "name"
             "quote"
             "pic"
+            "description"
             "text"
             "code"
             "main";
@@ -231,7 +238,7 @@ header img {
         text-align: center;
     }
     #student-contact{
-        grid-area: pic;
+        grid-area: description;
         text-align: center;
     }
     #student-profile{
