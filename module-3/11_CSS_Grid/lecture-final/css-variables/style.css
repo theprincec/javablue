@@ -1,0 +1,37 @@
+:root {
+    --section-text-color: green;
+    --content-width: 50%;
+}
+h1 {
+    color: blue;
+}
+
+section h2 {
+    background-color: yellow;
+    color: orangered;
+    width: var(--content-width);
+}
+
+section > p {
+    color: var(--section-text-color);
+    font-size: 1.5rem;
+}
+
+section > div {
+    color: purple;
+    font-size: 1.75rem;
+    border: 1px solid black;
+    padding: 10px;
+    width: var(--content-width);
+}
+
+section > div > p {
+    color: teal;
+    background-image: linear-gradient(lightblue, pink);
+    padding: 5px;
+}
+article {
+    width: var(--content-width)
+}
+
+
