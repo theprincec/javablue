@@ -50,3 +50,208 @@ header img {
 #student-picture img{
     border-radius: 50%;
 }
+
+#main-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "name name picture"
+        "text text specs"
+        "code code code"
+        "main main side";
+    grid-row-gap: 20px;
+    grid-column-gap: 50px;
+    align-items: center;
+    /* padding: 10px; */
+
+}
+
+#experience-grid{
+    grid-area: code;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-areas:
+        "code-header code-header"
+        "code-header1 code-header1"
+        "code-section1 code-section2"
+        "footer copyright";
+    grid-row-gap: 20px;
+    grid-column-gap: 50px;
+    /* padding: 10px; */
+
+}
+#headline, #student-quote {
+    grid-area: name;
+}
+#student-picture {
+    grid-area: picture;
+    text-align: center;
+
+}
+
+/* #student-quote{
+    grid-area: text;
+} */
+
+#student-contact{
+    grid-area: specs;
+    text-align: center;
+}
+#student-profile{
+    grid-area: text;
+} 
+
+#experience-code {
+    grid-area: code-header;
+}
+#experience-database {
+    grid-area: code-header1;
+}
+
+#experience-web {
+    grid-area: code-section1;
+}
+
+#experience-design {
+    grid-area: code-section2;
+}
+
+
+
+
+@media screen and (max-width: 1024px) and (min-width: 451px){
+    #main-grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "name name"
+            "quote pic"
+            "text text"
+            "code code"
+            "main main";
+        grid-row-gap: 20px;
+        grid-column-gap: 50px;
+        align-items: center;
+        /* padding: 10px; */
+    }
+
+    #experience-grid{
+        grid-area: code;
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        grid-template-areas:
+            "code-area1 code-area2"
+            "code-area3 code-area4";
+        grid-row-gap: 20px;
+        grid-column-gap: 50px;
+
+    }
+
+    #headline {
+        grid-area: name;
+    }
+
+    #student-quote {
+        grid-area: quote;
+    }
+    
+    #student-picture {
+        grid-area: pic;
+        text-align: center;
+    
+    }
+
+
+    #student-contact{
+        grid-area: pic;
+        text-align: center;
+    }
+    #student-profile{
+        grid-area: text;
+    } 
+    
+    #experience-code {
+        grid-area: code-area1;
+    }
+    #experience-database {
+        grid-area: code-area2;
+    }
+    
+    #experience-web {
+        grid-area: code-area3;
+    }
+    
+    #experience-design {
+        grid-area: code-area4;
+    }
+
+    
+}
+
+@media screen and (max-width: 450px) {
+    #main-grid{
+        display: grid;
+        grid-template-columns: 1fr ;
+        grid-template-areas:
+            "name"
+            "quote"
+            "pic"
+            "text"
+            "code"
+            "main";
+        grid-row-gap: 20px;
+        grid-column-gap: 50px;
+        align-items: center;
+        /* padding: 10px; */
+    }
+
+    #experience-grid{
+        grid-area: code;
+        display: grid;
+        grid-template-columns: 1fr ;
+        grid-template-areas:
+            "code-area1"
+            "code-area2"
+            "code-area3"
+            "code-area4";
+        grid-row-gap: 20px;
+        grid-column-gap: 50px;
+    }
+
+    #headline {
+        grid-area: name;
+    }
+
+    #student-quote {
+        grid-area: quote;
+    }
+    
+    #student-picture {
+        grid-area: pic;
+        text-align: center;
+    }
+    #student-contact{
+        grid-area: pic;
+        text-align: center;
+    }
+    #student-profile{
+        grid-area: text;
+    } 
+    
+    #experience-code {
+        grid-area: code-area1;
+    }
+    #experience-database {
+        grid-area: code-area2;
+    }
+    
+    #experience-web {
+        grid-area: code-area3;
+    }
+    
+    #experience-design {
+        grid-area: code-area4;
+    }
+
+    
+}
