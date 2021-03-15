@@ -24,7 +24,7 @@ public class AuctionService {
         Auction[] auctions = null;
         try {
             // send request here
-        	auctions = restTemplate.exchange(BASE_URL + "/auctions", HttpMethod.GET, makeAuthEntity(), Auction[].class).getBody();
+        	auctions = restTemplate.exchange(BASE_URL + "auctions", HttpMethod.GET, makeAuthEntity(), Auction[].class).getBody();
         } catch (RestClientResponseException ex) {
             throw new AuctionServiceException(ex.getRawStatusCode() + " : " + ex.getResponseBodyAsString());
         }
