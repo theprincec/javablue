@@ -4,21 +4,36 @@ body {
   min-height: 100vh;
   /* Photo by Andre Furtado on Unsplash */
   background: url(../img/andre-furtado-JtV6zyOZSrA-unsplash.jpg) left / cover no-repeat;
+  display: grid;
+  grid-template-columns: 35% 65%;
+  grid-template-areas: 
+    "left-panel right-panel";
 }
 
 #left-panel {
   background-color: #F7F7F7;
+  grid-area: left-panel;
+
 }
 
 ul.social-icons {
   list-style-type: none;
   margin: 20px 20px;
   padding: 0;
+  display: flex;
+  justify-content: space-between;
 }
 
 nav {}
 
-#right-panel {}
+#right-panel {
+  grid-area: right-panel;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+
+}
 
 /* YOU WON'T NEED TO CHANGE ANY STYLES BELOW THIS LINE */
 
