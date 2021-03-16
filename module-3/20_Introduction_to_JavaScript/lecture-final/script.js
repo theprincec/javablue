@@ -1,3 +1,14 @@
+const globalScope = "This variable is in global scope";
+
+function scopes() {
+  const functionScope = "This variable is in function scope";
+  if (1 == 1) {
+    const blockScope = "This variable is in block scope";
+  }
+}
+
+
+console.log("JavaScript not in a function runs when loaded");
 /*
     Example of a multi-line comment just like in C#/Java
 */
@@ -10,8 +21,20 @@
  */
 function variables() {
   // Declares a variable where the value cannot be changed
+  const daysPerWeek = 7;
+  console.log(`There are ${daysPerWeek} days in the week`);
   // Declares a variable those value can be changed
+  let daysPerMonth = 30;
   // Declares a variable that will always be an array
+  const weekdays = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday"
+  ];
+  console.log(weekdays);
+  console.table(weekdays);
 }
 
 /**
@@ -23,6 +46,12 @@ function variables() {
 function printParameters(param1, param2) {
   console.log(`The value of param1 is ${param1}`);
   console.log(`The value of param2 is ${param2}`);
+}
+
+function typeOfVariable(param1) {
+  if (typeof param1 == 'string') {
+    console.log("Is a String");
+  }
 }
 
 /**
@@ -52,7 +81,34 @@ function falsy(x) {
   } else {
     console.log(`${x} is falsy`);
   }
+
+  if (x) {
+    console.log('x has a value');
+  }
 }
+
+function arrays() {
+  const numbers = [1, 2, 3, 4];
+  console.table(numbers);
+  console.log( numbers.length );
+  // push will add to the end of an array
+  numbers.push('abc');
+  // unshift will add to the beginning of an array
+  numbers.unshift('xyz');
+  console.table(numbers);
+  // pop will remove the last element of the array and return it
+  console.log( numbers.pop() );
+
+  console.log( numbers[2] );
+  numbers[2] = 'zzz';
+  console.table(numbers);
+
+  numbers[10] = "this index doesn't exist";
+  console.table(numbers);
+
+  console.log( numbers[100] );
+}
+
 
 /**
  *  Objects are simple key-value pairs
@@ -70,14 +126,32 @@ function objects() {
       "Milton Waddams",
       "Samir Nagheenanajar",
       "Michael Bolton"
-    ]
+    ],
+    toString: function() {
+      return `${this.lastName}, ${this.firstName} (${this.age})`;
+    }
   };
 
   // Log the object
-
+  console.table(person);
   // Log the first and last name
+  console.log( person.firstName + ' ' + person.lastName );
+
+  // You can set the properties
+  person.firstName = 'John';
+  // If the property doesn't exist it is added
+  person.lastname = 'Fulton';
+  console.table(person);
 
   // Log each employee
+  for (let i = 0; i < person.employees.length; i++) {
+    console.log(`Employee ${i + 1} is ${person.employees[i]}`);
+  }
+
+  console.log( person.toString() );
+
+  console.log( person.toString );
+
 }
 
 /*
@@ -96,6 +170,23 @@ function Add(num1, num2) {
 
 function Add(num1, num2, num3) {
   return num1 + num2 + num3;
+}
+
+function dataConversion() {
+  console.log( 1.5 + 5 );
+  console.log( '1.5' + 5);
+  console.log( parseFloat('1.5') + 5);
+  console.log( Number('1.5') + 5);
+  console.log( parseInt('1.5') + 5);
+}
+
+function isNotANumber() {
+  console.log('1: ' +  isNaN(1) )
+  console.log('"1": ' +  isNaN("1") )
+  console.log('A: ' +  isNaN("A") )
+  console.log('1/0: ' +  isNaN(1/0) )
+  console.log('0/1: ' +  isNaN(0/1) )
+  console.log('0/0: ' +  isNaN(0/0) )
 }
 
 /*
@@ -129,6 +220,9 @@ function stringFunctions(value) {
   console.log(`.endsWith('World') - ${value.endsWith("World")}`);
   console.log(`.startsWith('Hello') - ${value.startsWith("Hello")}`);
   console.log(`.indexOf('Hello') - ${value.indexOf("Hello")}`);
+
+  console.log('substr(1,3): ' + value.substr(1, 3));
+  console.log('substring(1,3): ' + value.substring(1, 3));
 
   /*
     Other Methods
