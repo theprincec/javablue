@@ -33,15 +33,15 @@ function sumDouble(x, y){
 */
 
 
-// function hasTeen(int[]){
-// 	let result = false;
-// 	for (let num of int[]){
-// 		if (num >=13){
-// 			result=true;
-// 		}
-// 	}
-// 	return result;
-// }
+function hasTeen(ints){
+	let result = false;
+	for (let num of ints){
+		if (num >=13){
+			result=true;
+		}
+	}
+	return result;
+}
 
 
 function hasTeen(x, y, z){
@@ -64,8 +64,8 @@ function hasTeen(x, y, z){
 function lastDigit(x, y){
 	let stringX = String(x);
 	let stringY = String(y);
-	let stringXEnding = stringX.substring(stringX.length()-1);
-	let stringYEnding = stringY.substring(stringY.length()-1);
+	let stringXEnding = stringX.substring(stringX.length-1);
+	let stringYEnding = stringY.substring(stringY.length-1);
 
 	let result = false;
 	if (Number(stringXEnding) == Number(stringYEnding)){
@@ -108,7 +108,7 @@ function seeColor(word){
 */
 
 function oddOnly(numbers){
-	let oddList = []
+	let oddList = [];
 	for (let num of numbers){
 		if (num % 2 ==1) {
 			oddList.push(num);
@@ -127,6 +127,25 @@ function oddOnly(numbers){
 		frontAgain("ed") → true
 */
 
+function frontAgain(word){
+	const front2 = word.substr(0,2);
+	const last2 = word.substr(word.length-2,2);
+
+	let result = false;
+
+	if (  last2 == front2 || word.length ==2 ) {
+		result = true;
+	}
+
+	// if ( last2 == front2 || word.length ==2 ) {
+	// 	const result = true;
+	// }
+
+	return result;
+}
+
+
+
 /*
 7. **cigarParty** When squirrels get together for a party, they like to have cigars. 
 A squirrel party is successful when the number of cigars is between 40 and 60, inclusive. 
@@ -138,6 +157,18 @@ or false otherwise.
 		cigarParty(50, false) → true
 		cigarParty(70, true) → true
 */
+
+function cigarParty(x, y){
+	if (y && x>=40){
+		return true;
+
+	} else if (!y && x>=40 && x<=60){
+		return true;
+	} else{
+		return false;
+	}
+}
+
 
 /*
 8. **fizzBuzz** Because you know you can't live without it, FizzBuzz.
@@ -174,6 +205,16 @@ function fizzBuzz(x){
 	filterEvens([100, 8, 21, 24, 62, 9, 7]) → [100, 8, 24, 62]
 */
 
+function filterEvens(numbers){
+	let evenList = [];
+	for (let num of numbers){
+		if (num % 2 ==0) {
+			evenList.push(num);
+		}
+	}
+	return evenList;
+}
+
 /*
 10. **filterBigNumbers** Write a function that filters numbers greater than or equal to 100.
 
@@ -182,6 +223,16 @@ function fizzBuzz(x){
 	filterBigNumbers([]) → []
 */
 
+function filterBigNumbers(numbers){
+	let bigList = [];
+	for (let num of numbers){
+		if (num >= 100) {
+			bigList.push(num);
+		}
+	}
+	return bigList;
+}
+
 /*
 11. **filterMultiplesOfX** Write a function to filter numbers that are a multiple of a 
 parameter, `x` passed in.
@@ -189,6 +240,17 @@ parameter, `x` passed in.
 	filterMultiplesOfX([3, 5, 1, 9, 18, 21, 42, 67], 3) → [3, 9, 18, 21, 42]
 	filterMultiplesOfX([3, 5, 10, 20, 18, 21, 42, 67], 5) → [5, 10, 20]
 */
+
+function filterMultiplesOfX(ints,y){
+	const multiples = [];
+	for (let i=0; i<ints.length-1; i++){
+		if (ints[i] % y==0){
+			multiples.push(ints[i]);
+		}
+	}
+	return multiples;
+}
+
 
 /*
 12. **createObject** Write a function that creates an object with a property called 
@@ -208,14 +270,6 @@ function createObject(){
 		firstName : 'Johnny',
 		lastName : 'Ramone',
 		age: 37
-
 	}
-}
-
-function createObject() {
-	const person = {
-	  firstName: "Bill",
-	  lastName: "Lumbergh",
-	  age: 42
-	}
+	return person;
 }
