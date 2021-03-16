@@ -13,6 +13,16 @@
         }
 */
 
+
+function sumDouble(x, y){
+	if (x==y){
+		x = x*2;
+		y = y*2;
+	}
+	return x + y;
+}
+
+
 /*
 2. **hasTeen** We'll say that a number is "teen" if it is in the range 13..19 inclusive. 
     Given 3 int values, return true if 1 or more of them are teen.
@@ -21,6 +31,26 @@
 		hasTeen(20, 19, 10) → true
 		hasTeen(20, 10, 13) → true
 */
+
+
+// function hasTeen(int[]){
+// 	let result = false;
+// 	for (let num of int[]){
+// 		if (num >=13){
+// 			result=true;
+// 		}
+// 	}
+// 	return result;
+// }
+
+
+function hasTeen(x, y, z){
+	let result = false;
+	if (x>=13 || x>=13 ||x>=13){
+		result = true;
+	}
+	return result;
+}
 
 /* 
 3. **lastDigit** Given two non-negative int values, return true if they have the same 
@@ -31,6 +61,21 @@
 		lastDigit(3, 113) → true
 */
 
+function lastDigit(x, y){
+	let stringX = String(x);
+	let stringY = String(y);
+	let stringXEnding = stringX.substring(stringX.length()-1);
+	let stringYEnding = stringY.substring(stringY.length()-1);
+
+	let result = false;
+	if (Number(stringXEnding) == Number(stringYEnding)){
+		result = true;
+	}
+	return result;
+
+}
+
+
 /*
 4. **seeColor** Given a string, if the string begins with "red" or "blue" return that color 
     string, otherwise return the empty string.
@@ -40,6 +85,20 @@
         seeColor("blueTimes") → "blue"
 */
 
+function seeColor(word){
+	if (word.substr(0, 3)=='red'){
+		return 'red';
+	} else if (word.substr(0, 4)=='blue'){
+		return 'blue';
+	} else{
+		return '';
+	}
+}
+
+
+
+
+
 /*
 5. **oddOnly** Write a function that given an array of integer of any length, filters out 
     the even number, and returns a new array of just the the odd numbers.
@@ -47,6 +106,17 @@
 		oddOnly([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) → [1, 3, 5, 7, 9, 11];
 		oddOnly([2, 4, 8, 32, 256]); → []
 */
+
+function oddOnly(numbers){
+	let oddList = []
+	for (let num of numbers){
+		if (num % 2 ==1) {
+			oddList.push(num);
+		}
+	}
+	return oddList;
+}
+
 
 /*
 6. **frontAgain** Given a string, return true if the first 2 chars in the string also appear 
@@ -78,6 +148,22 @@ or false otherwise.
 		fizzBuzz(15) → "FizzBuzz"
 		fizzBuzz(8) → 8
 */
+
+function fizzBuzz(x){
+	if (x%3== 0 && x%5==0){
+		return 'FizzBuzz';
+	} else if (x%3== 0){
+		return 'Fizz';
+	} else if (x%5==0){
+		return 'Buzz';
+	} else{
+		return x;
+	}
+
+}
+
+
+
 
 /*
 9. **filterEvens** Write a function that filters an array to only include even numbers.
@@ -116,3 +202,20 @@ firstName, lastName, and age. Populate the properties with your values.
 		age
 	}
 */
+
+function createObject(){
+	const person = {
+		firstName : 'Johnny',
+		lastName : 'Ramone',
+		age: 37
+
+	}
+}
+
+function createObject() {
+	const person = {
+	  firstName: "Bill",
+	  lastName: "Lumbergh",
+	  age: 42
+	}
+}

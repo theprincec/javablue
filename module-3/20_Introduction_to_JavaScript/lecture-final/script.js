@@ -1,3 +1,8 @@
+console.log('Hi my name is Christian');
+console.log(variables());
+console.log(3,'JohnnnyBoy');
+console.log(arrays());
+
 const globalScope = "This variable is in global scope";
 
 function scopes() {
