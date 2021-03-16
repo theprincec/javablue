@@ -1,3 +1,5 @@
+sayHello();
+
 /**
  * All named functions will have the function keyword and
  * a name followed by parentheses.
@@ -27,6 +29,10 @@ function printToConsole(value) {
  * @param {number} firstParameter the first parameter to multiply
  * @param {number} secondParameter the second parameter to multiply
  */
+function multiplyTogether(firstParameter, secondParameter) {
+    return firstParameter * secondParameter;
+}
+
 
 /**
  * This version makes sure that no parameters are ever missing. If
@@ -38,7 +44,22 @@ function printToConsole(value) {
  * @param {number} [firstParameter=0] the first parameter to multiply
  * @param {number} [secondParameter=0] the second parameter to multiply
  */
+ function multiplyNoUndefined(firstParameter=0, secondParameter=0) {
+  return firstParameter * secondParameter;
+}
 
+/**
+ * Dealing with unknown number of parameters using the arguments object
+ */
+function unknownParams() {
+  console.log("Number of Arguments: " + arguments.length);
+  console.table(arguments);
+
+  // The argument object is not an Array, but can be converted to one using Array.from()
+  const argsAsArray = Array.from( arguments );
+  argsAsArray.push("test");
+  console.table(argsAsArray);
+}
 
  
 /**
@@ -87,6 +108,26 @@ function scopeTest() {
   }
 }
 
+/**
+ * JS Doc
+ * 
+ * Describe what a function will do, but not how it will do it.
+ * 
+ * Should include the parameters with data types and a description
+ * Should include the return data type and description
+ */
+
+/**
+ * Take the details of a person and create an English readable sentence
+ * that uses that information to describe them.  Quirks will be joined 
+ * together with the separator, or ', ' by default.
+ * 
+ * @param {string} name the name of the person being described
+ * @param {number} age the age of the person
+ * @param {string[]} [listOfQuirks=[]] a list of funny quirks to be listed with the person 
+ * @param {string} [separator=", "] the string used to separate the quirks
+ * @returns {string} the English readable sentence that describes the person
+ */
 function createSentenceFromUser(name, age, listOfQuirks = [], separator = ', ') {
   let description = `${name} is currently ${age} years old. Their quirks are: `;
   return description + listOfQuirks.join(separator);
