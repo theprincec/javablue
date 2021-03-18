@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const theList = document.getElementById('theList')
   theList.addEventListener('click', (event) => {
-    if (event.target.innerText == 'Brian') {
+    if (event.target.innerText == 'John') {
       alert('great answer!')
     } else {
       what();
