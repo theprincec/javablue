@@ -11,6 +11,9 @@ function addWithSpread(x, y, z) {
     return x + y + z;
 }
 
+console.log('Hi this is christian');
+console.log(demonstrateSpread());
+
 function demonstrateSpread() {
     const args = [1, 2, 3];
     console.log( addWithSpread(...args) );

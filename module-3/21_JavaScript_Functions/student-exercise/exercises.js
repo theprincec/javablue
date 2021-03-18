@@ -20,6 +20,15 @@
  * @returns {boolean} true if they are admitted
  */
 
+ function isAdmitted(gpa, satScore=0, recommendation=false){
+    let admissionStatus = false
+    if (gpa>4.0 || satScore >1300 || (satScore>1200 &&recommendation==true) || (gpa>3.0 && recommendation==true)) {
+        admissionStatus = true;
+    }
+    return admissionStatus;
+
+ }
+
 /**
  * Write a function called useParameterToFilterArray that takes an anonymous
  * function and uses that in the `unfilteredArray` filter function. Return the result.
@@ -28,6 +37,19 @@
  * @returns {number[]} the filtered array
  */
 let unfilteredArray = [1, 2, 3, 4, 5, 6];
+
+
+function useParameterToFilterArray(filterFunction){
+
+    unfilteredArray = arr.filter( (number) => {
+        filterFunction();
+        }
+        
+    );
+
+
+}
+
 
 /**
  * Write a function called makeNumber that takes two strings
@@ -42,6 +64,15 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * @returns {number} the resultant number
  */
 
+function makeNumber(x,y=''){
+
+    return Number(x + y);
+}
+
+
+
+
+
 /**
  * Write a function called addAll that takes an unknown number of parameters
  * and adds all of them together. Return the sum.
@@ -50,11 +81,45 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * @returns {number} the sum of all the parameters (or arguments)
  */
 
+function addAll(){
+    const argsArray= Array.from(arguments);
+
+    const sum = argsArray.reduce( (ongoingSum, currentValue) => {
+        return ongoingSum + currentValue;
+    }, 0);
+
+}
+
+
+
 /*
  * Write and document a function called makeHappy that takes
  * an array and prepends 'Happy ' to the beginning of all the
  * words and returns them as a new array. Use the `map` function.
  */
+
+
+
+
+
+ /**
+  * 
+  * @param {String[]} unhappyStrings
+  * @returns {String[]} happyStrings
+  */
+
+
+
+function makeHappy(newArray) {
+    const happy = 'Happy ';
+    const happyArray = newArray.map( (value)=> {
+        return happy.concat(value);
+    } )
+}
+
+
+
+
 
 /*
  * Write and document a function called getFullAddressesOfProperties
