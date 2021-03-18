@@ -5,6 +5,12 @@ colors.addEventListener("click", event => {
   }
 });
 
+colors.addEventListener("dblclick", event => {
+	if (event.target.nodeName.toLowerCase() === "li") {
+		event.target.style.backgroundColor = 'transparent';
+	}
+});
+
 function addOrange() {
 	const orange = document.createElement('li');
 	orange.innerText = 'Orange';
@@ -14,4 +20,14 @@ function addOrange() {
 document.addEventListener('DOMContentLoaded', () => {
 	const button = document.getElementById('btnAddOrange');
 	button.addEventListener('click', addOrange);
+
+	document.getElementById('btnAddAnotherColor').addEventListener('click', addColor);
+
 });
+
+function addColor() {
+		const newColor= document.createElement('li');
+		newColor.innerText = document.getElementById('colorpicker').value;
+		colors.appendChild(newColor);
+
+}
