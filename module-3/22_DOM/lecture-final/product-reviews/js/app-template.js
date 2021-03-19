@@ -53,19 +53,23 @@ function setPageDescription() {
  */
 function displayReviews() {
   if ('content' in document.createElement('template')) {
+    
     const main = document.getElementById('main');
     reviews.forEach((review) => {
+
       const tmpl = document.getElementById('review-template').content.cloneNode(true);
-      tmpl.querySelector('h4').innerHTML = review.reviewer;
-      tmpl.querySelector('h3').innerHTML = review.title;
-      tmpl.querySelector('p').innerHTML = review.review;
+      tmpl.querySelector('h4').innerText = review.reviewer;
+      tmpl.querySelector('h3').innerText = review.title;
+      tmpl.querySelector('p').innerText = review.review;
       // there will always be 1 star because it is a part of the template
       for (let i = 1; i < review.rating; ++i) {
         const img = tmpl.querySelector('img').cloneNode();
         tmpl.querySelector('.rating').appendChild(img);
       }
+
       main.appendChild(tmpl);
     });
+
   } else {
     console.error('Your browser does not support templates');
   }
