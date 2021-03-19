@@ -146,6 +146,16 @@ function makeHappy(newArray) {
  * It must work for strings and numbers.
  */
 
+function findLargest(arr1){
+    let largest; 
+    arr1.foreach((currentValue)=>{
+        largest = currentValue; 
+        if (currentValue > largest){
+            largest = currentValue;
+        }
+     })
+ }
+
 /*
  * CHALLENGE
  * Write and document a function called getSumOfSubArrayValues.
