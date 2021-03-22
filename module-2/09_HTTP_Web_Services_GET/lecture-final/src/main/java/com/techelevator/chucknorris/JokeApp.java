@@ -1,24 +1,28 @@
 package com.techelevator.chucknorris;
 
-import java.util.Map;
 import java.util.Scanner;
 
-import com.techelevator.chucknorris.Word;
-
+import org.apache.commons.dbcp2.BasicDataSource;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.client.RestTemplate;
 
 public class JokeApp {
 
+	//public JokeApp(DataSource datasource) {
+		//venueDAO = new JDBCVenueDAO(datasource);
+	//}
 	
-	//https://www.dictionaryapi.com/api/v3/references/thesaurus/json/college?key=ca9b93dd-8df7-4fd7-bc5a-866b7b5dac4a;
-	//https://www.dictionaryapi.com/api/v3/references/thesaurus/json/
-		//college      searchTerm
-		//?key=ca9b93dd-8df7-4fd7-bc5a-866b7b5dac4a	
+	// STEP 2: Instantiate a JdbcTemplatae and pass it the DataSource
+	/* The JdbcTemplate is the main interface we use to interact with databases using
+	 * Spring JDBC. */
 	
-		
-		
-		
-		
+	//JdbcTemplate dvdstoreJdbcTemplate = new JdbcTemplate(dvdstoreDataSource);
+	
+
+//	JokeApp application = new JokeApp(dataSource, menu);
+//	application.run();
+	
+
 		
 	private final static String ENDPOINT = "http://api.icndb.com/jokes/random?exclude=explicit";
 	
@@ -30,29 +34,29 @@ public class JokeApp {
 	private static final Scanner in = new Scanner(System.in);
 	
 	public static void main(String[] args) {
+		
+		
+		BasicDataSource wordDataSource = new BasicDataSource();
+		wordDataSource.setUrl("jdbc:postgresql://localhost:5432/WordBase");
+		wordDataSource.setUsername("postgres");
+		wordDataSource.setPassword("postgres1");
+		
+		JdbcTemplate wordJdbcTemplate = new JdbcTemplate(wordDataSource);
 
-		//String url = ENDPOINT;
 		
-		System.out.println("Show only nerdy category?");
-		String choice = in.nextLine();
+		System.out.println("Type enter a word to seatch for:");
+		String newWordToSearch = in.next();
 
 		
-		String url = END + "college" + KEY;
+		String url = END + newWordToSearch + KEY;
 		
-		if (choice.equalsIgnoreCase("Y")) {
-//			getSearchWord(choice);
-			
-			
-			//url += "&limitTo=nerdy";
-		}
+		//restTemplate connected to API to get syns
+		//needs an exception handler
+		Root[] theWord = restTemplate.getForObject(url, Root[].class);
 		
-		//Joke joke = restTemplate.getForObject(url, Joke.class);
+		System.out.println(theWord[0].getMeta().getSyns().get(0));
 		
-		//System.out.println( joke.getValue().getJoke() );
 		
-		Word theWord = restTemplate.getForObject(url, Word.class);
-		
-		System.out.println(theWord);
 		
 
 		

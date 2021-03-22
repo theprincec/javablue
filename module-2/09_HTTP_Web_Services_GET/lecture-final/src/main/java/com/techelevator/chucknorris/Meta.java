@@ -5,7 +5,7 @@ import java.util.List;
 public class Meta {
 	
 	private String id;
-	//private List<String> syns;
+	private List<List<String>> syns;
 	
 	
 	
@@ -15,14 +15,21 @@ public class Meta {
 	public void setId(String id) {
 		this.id = id;
 	}
-//	public List<String> getSyns() {
-//		return syns;
-//	}
-//	public void setSyns(List<String> syns) {
-//		this.syns = syns;
-//	}
+	
+	public List<List<String>> getSyns() {
+		return syns;
+	}
+	public void setSyns(List<List<String>> syns) {
+		this.syns = syns;
+	}
+
 	
 	
+	private List<String> getListofSyns(){
+		List<String> newSyns = getSyns().get(0);
+		
+		return newSyns;
+	}
 	
 	
 

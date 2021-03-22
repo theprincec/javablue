@@ -41,12 +41,9 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
 
 function useParameterToFilterArray(filterFunction){
 
-    unfilteredArray = arr.filter( (number) => {
-        filterFunction();
-        }
-        
-    );
-
+    const filtered = unfilteredArray.filter(filterFunction);
+    
+    return filtered;
 
 }
 
@@ -84,9 +81,13 @@ function makeNumber(x,y=''){
 function addAll(){
     const argsArray= Array.from(arguments);
 
+    if (arguments.length===0){
+        return 0;
+    }
     const sum = argsArray.reduce( (ongoingSum, currentValue) => {
         return ongoingSum + currentValue;
-    }, 0);
+    });
+    return sum;
 
 }
 
@@ -110,15 +111,11 @@ function addAll(){
 
 
 
-function makeHappy(newArray) {
+function makeHappy(unhappyStrings) {
     const happy = 'Happy ';
-    const happyArray = newArray.map( (value)=> {
-        return happy.concat(value);
-    } )
+    const happyArray = unhappyStrings.map( (value)=> happy.concat(value))
+    return happyArray;
 }
-
-
-
 
 
 /*
@@ -139,6 +136,24 @@ function makeHappy(newArray) {
  * Use `map` and an anonymous function.
  */
 
+function getFullAddressesOfProperties(address){
+    const addressDetails = Object.values(address);
+
+    addressDetails.map((value) => {
+        return String(value);
+    })
+
+    return addressDetails;
+
+}
+ 
+
+
+
+
+
+
+
 /*
  * Write and document a function called findLargest.
  *
@@ -147,13 +162,14 @@ function makeHappy(newArray) {
  */
 
 function findLargest(arr1){
-    let largest; 
-    arr1.foreach((currentValue)=>{
-        largest = currentValue; 
-        if (currentValue > largest){
+    let largest = arr1[0]; 
+    arr1.forEach((currentValue)=>{
+        //largest = currentValue[0]; 
+        if (currentValue > largest ){
             largest = currentValue;
         }
      })
+     return largest;
  }
 
 /*
