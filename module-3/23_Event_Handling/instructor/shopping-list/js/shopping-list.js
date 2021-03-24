@@ -13,7 +13,30 @@ const groceries = [
   { id: 10, name: 'Tea', completed: false }
 ];
 
+document.addEventListener('DOMContentLoaded', (event) => {
+
+  const allTheItems = document.querySelectorAll('li');
+
+  allTheItems.forEach( li => {
+    li.addEventListener('click', (event) => {
+      addCompleted(event.target);
+
+    });
+    li.querySelector('i').addEventListener('click', (event) => {
+      event.target.parentElement.classList.add('completed');
+    });
+  });
+
+});
+
+function addCompleted(element) {
+  element.classList.add('completed');
+  element.querySelector('i').classList.add('completed');
+}
+
+
 /**
+ * 
  * This function will get a reference to the title and set its text to the value
  * of the pageTitle variable that was set above.
  */
