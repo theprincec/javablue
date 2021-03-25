@@ -10,6 +10,7 @@
             <option v-bind:value="false">Hide Description</option>
         </select>
 
+        <input type="button" value="Change all" v-on:click.prevent="changeAllReviews" />
 
         <div class="well-display">
             <div class="well">
@@ -151,7 +152,7 @@ export default {
                     title: 'And I thought I could write',
                     review:
                     "There are a lot of good, solid tips in this book. I don't want to ruin it, but prelighting all the cigars is worth the price of admission alone.",
-                    rating: 3
+                    rating: 3,
                 }
             ]
         
@@ -205,7 +206,13 @@ export default {
         },
         changeBackgroundColor(event) {
             this.backgroundColor = event.target.innerText;
+        },
+        changeAllReviews() {
+            this.reviews.forEach( review => {
+                review.title = 'test';
+            })
         }
+
     }
 }
 </script>
