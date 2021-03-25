@@ -43,7 +43,9 @@ document.addEventListener('DOMContentLoaded', ()=> {
   });
 
   document.getElementById('toggleAll').addEventListener('dblclick', (event) =>{
-    
+    event.target.innerText('Mark All Incomplete');
+
+    //change to completed for all list items
     document.querySelectorAll('ul li').forEach( (currentValue) => {
       currentValue.setAttribute("class", "completed");
     })

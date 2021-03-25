@@ -24,6 +24,15 @@
         </td>
       </tr>
       <!-- user listing goes here -->
+      <tr v-for="user of users" v-bind:key="user.id">  
+        <th> {{user.firstName}} </th>
+        <th>{{user.lastName}} </th>
+        <th>{{user.username}} </th>
+        <th>{{user.emailAddress}} </th>
+        <th> {{user.staus}}  </th>
+      </tr>
+
+
     </tbody>
   </table>
 </template>

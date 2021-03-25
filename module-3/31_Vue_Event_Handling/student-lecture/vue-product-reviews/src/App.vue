@@ -14,13 +14,13 @@
 
 <script>
 import ProductReviews from './components/ProductReviews.vue'
-import AddEmail from './components/AddEmail.vue'
+// import AddEmail from './components/AddEmail.vue'
 
 export default {
   name: 'App',
   components: {
     ProductReviews,
-    AddEmail
+    // AddEmail
   }
 }
 </script>
