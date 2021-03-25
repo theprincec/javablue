@@ -1,0 +1,103 @@
+/* CSS For App.vue */
+
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+  
+  }
+  div#app main {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+  div#app a {
+    display: inline-block;
+    margin-top: 10px;
+    text-decoration: none;
+    color: darkblue;
+    font-weight: 600;
+  }
+  div#app a:hover {
+    color: blue;
+  }
+
+
+/* CSS for ProductList.vue */
+div.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 90%;
+}
+
+
+/* CSS for ProductListItem.vue */
+div.product {
+    border: 1px black solid;
+    width: 30%;
+    margin: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div.product.bestseller {
+    background-color: lightyellow;
+}
+div.product img {
+    width: 75%;
+    max-height: 200px;
+    align-self: center;
+}
+div.product h2 {
+    font-size: 1.1rem;
+    color: black;
+}
+
+div.rating {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+
+}
+div.rating img.ratingStar {
+    width: 20px;
+}
+
+div.product div.notices {
+    display: flex;
+    justify-content: space-between;
+    align-content: flex-end;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    font-weight: 800;
+}
+div.product div.notices span.topseller {
+    color: blue;
+}
+div.product div.notices span.limitedstock {
+    color: red;
+}
+
+/* CSS for ProductTable.vue */
+table {
+    margin-top: 20px;
+}
+th, td {
+    width: 200px;
+    padding-top: 10px;
+}
+tr:nth-child(even) {
+    background-color: lightblue;
+}
+
+/* CSS for ProductTableRow.vue */
+td img {
+    width: 100px;
+}
