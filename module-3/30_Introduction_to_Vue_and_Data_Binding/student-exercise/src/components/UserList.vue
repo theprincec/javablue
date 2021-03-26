@@ -11,10 +11,10 @@
     </thead>
     <tbody>
       <tr>
-        <td><input type="text" id="firstNameFilter"/></td>
-        <td><input type="text" id="lastNameFilter"/></td>
-        <td><input type="text" id="usernameFilter"/></td>
-        <td><input type="text" id="emailFilter"/></td>
+        <td><input type="text" id="firstNameFilter" v-model="filter.firstName"/></td>
+        <td><input type="text" id="lastNameFilter" v-model="filter.lastName"/></td>
+        <td><input type="text" id="usernameFilter" v-model="filter.username"/></td>
+        <td><input type="text" id="emailFilter" v-model="filter.emailAddress"/></td>
         <td>
           <select id="statusFilter">
             <option value="">Show All</option>
@@ -24,11 +24,11 @@
         </td>
       </tr>
       <!-- user listing goes here -->
-      <tr v-for="user of users" v-bind:key="user.id">  
+      <tr class="table" v-for="user of users" v-bind:key="user.id">  
         <th> {{user.firstName}} </th>
-        <th>{{user.lastName}} </th>
-        <th>{{user.username}} </th>
-        <th>{{user.emailAddress}} </th>
+        <th> {{user.lastName}} </th>
+        <th> {{user.username}} </th>
+        <th> {{user.emailAddress}} </th>
         <th> {{user.staus}}  </th>
       </tr>
 
@@ -49,8 +49,30 @@ export default {
         { firstName: 'Ben', lastName: 'Carter', username: 'bcarter', emailAddress: 'bcarter@gmail.com', status: 'Active' },
         { firstName: 'Katie', lastName: 'Jackson', username: 'kjackson', emailAddress: 'kjackson@yahoo.com', status: 'Active' },
         { firstName: 'Mark', lastName: 'Smith', username: 'msmith', emailAddress: 'msmith@foo.com', status: 'Disabled' }
-      ]
+      ],
+      filter: {
+        firstName: '', 
+        lastName: '', 
+        username: '', 
+        emailAddress: '', 
+        status: ''
+      }
+        
+      
     }
+
+    },
+  computed: {
+      filteredList(){
+        let filteredUsers = this.users;
+        if (this.filter.firstName != '') {
+          filteredUsers = filteredUsers.filter( (value)=> 
+            value.firstName.toLowerCase().includes(this.filter.toLowerCase())
+          )
+        }
+      }
+
+  }
   }
 }
 </script>
