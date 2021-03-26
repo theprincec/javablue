@@ -16,7 +16,7 @@
         <td><input type="text" id="usernameFilter" v-model="filter.username"/></td>
         <td><input type="text" id="emailFilter" v-model="filter.emailAddress"/></td>
         <td>
-          <select id="statusFilter">
+          <select id="statusFilter" v-model="filter.status" v-bind:class="{ disabled: user.status=='Disabled' }">
             <option value="">Show All</option>
             <option value="Active">Active</option>
             <option value="Disabled">Disabled</option>
@@ -24,7 +24,7 @@
         </td>
       </tr>
       <!-- user listing goes here -->
-      <tr class="table" v-for="user of users" v-bind:key="user.id">  
+      <tr class="table" v-for="user of users" v-bind:key="user.id" >  
         <th> {{user.firstName}} </th>
         <th> {{user.lastName}} </th>
         <th> {{user.username}} </th>
@@ -67,12 +67,33 @@ export default {
         let filteredUsers = this.users;
         if (this.filter.firstName != '') {
           filteredUsers = filteredUsers.filter( (value)=> 
-            value.firstName.toLowerCase().includes(this.filter.toLowerCase())
-          )
+              value.firstName.toLowerCase()
+              .includes(this.filter.toLowerCase())
+          );
+        } if (this.filter.lastName != '') {
+          filteredUsers = filteredUsers.filter( (value)=> 
+              value.lastName.toLowerCase()
+              .includes(this.filter.toLowerCase())
+          );
+        } if (this.filter.username != '') {
+          filteredUsers = filteredUsers.filter( (value)=> 
+              value.username.toLowerCase()
+              .includes(this.filter.toLowerCase())
+          );
+        } if (this.filter.emailAddress != '') {
+          filteredUsers = filteredUsers.filter( (value)=> 
+              value.emailAddress.toLowerCase()
+              .includes(this.filter.toLowerCase())
+          );
         }
-      }
+        if (this.filter.staus != '') {
+          filteredUsers = filteredUsers.filter( (value)=> 
+              value.status == this.filter.status
+          );
+        }
+        return filteredUsers;
 
-  }
+      }
   }
 }
 </script>
