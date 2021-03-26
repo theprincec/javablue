@@ -1,23 +1,20 @@
-<!-- Template defines the HTML -->
 <template>
-    <div class="main" v-bind:style="'background-color: ' + backgroundColor">
+    <!-- class main moves to main div on App.vue -->
+    <div class="main">
+        
+        <!-- Title and Description move to App.vue -->
         <h2>Product Reviews for {{ name }}</h2>
-        <!-- v-show hides/shows using css the element based on the boolean condition  -->
-        <p class="description" v-show="showDescription">{{ description }}</p>
+        <p class="description">{{ description }}</p>
 
-        <select v-model="showDescription">
-            <option v-bind:value="true">Show Description</option>
-            <option v-bind:value="false">Hide Description</option>
-        </select>
-
-        <input type="button" value="Change all" v-on:click.prevent="changeAllReviews" />
-
+        <!-- div.well-display moves to App.vue -->
         <div class="well-display">
+            <!-- div for average rating moves to AverageSummary.vue -->
             <div class="well">
                 <span class="amount" v-on:click="filter = 0">{{ averageRating }}</span>
                 Average Rating
             </div>
 
+            <!-- divs for individual star ratings move to StarSummary.vue -->
             <div class="well">
                 <span class="amount" v-on:click="filter = 1">{{ numberOfOneStarReviews }}</span>
                 1 Star Review{{ numberOfOneStarReviews === 1 ? '' : 's' }}
@@ -44,12 +41,12 @@
             </div>
         </div>
 
-        <!-- v-show uses CSS to show/hide the element based on the boolean condition -->
+
+        <!-- Show Form button and the form move to AddReview.vue -->
         <div v-show="!showForm">
             <a href="#" v-on:click.prevent="showForm = true">Add Review</a>
         </div>
-        <!-- v-on is used to attach an event listener to a dom element -->
-        <!-- v-if adds or removes the element to/from the DOM based on the boolean condition -->
+
         <form v-on:submit.prevent="addNewReview()" v-if="showForm">
             <div class="form-element">
                 <label for="reviewer">Name:</label>
@@ -74,15 +71,15 @@
                 <textarea id="review" v-model="newReview.review"></textarea>
             </div>
             <input type="submit" value="Save" v-bind:disabled="!isFormValid" />
-            <!-- @ is a shortcut for v-on: 
-                The () on the event handler method are optional as long as it doesn't have arguments -->
             <input type="button" value="Cancel" @click.prevent="resetForm" />
         </form>
 
+        <!-- No reviews found moves to ReviewList.vue -->
         <div v-if="filteredReviews.length === 0">
             <p>No {{ filter }} Star Reviews Found</p>
         </div>
 
+        <!-- div for an indvidual review moves to ReviewDisplay.vue.  v-for moves to ReviewList.vue -->
         <div class="review" v-for="review in filteredReviews" v-bind:key="review.id"
             v-bind:class="{ favorited: review.favorited }">
             <h4>{{ review.reviewer }}</h4>
@@ -95,36 +92,19 @@
             <p>Favorite? <input type="checkbox" v-model="review.favorited" /></p>
         </div>
 
-        <div>
-            Pick a Background Color
-            <ul v-on:click="changeBackgroundColor">  
-                <li>Red</li>
-                <li>Blue</li>
-                <li>Green</li>
-                <li>Yellow</li>
-                <li>Cornflowerblue</li>
-                <li>Goldenrod</li>
-                <li>Transparent</li>
-            </ul>
-
-        </div>
     </div>
 </template>
 
-<!-- Script defines the data and funtionality -->
 <script>
 
 export default {
     name: 'product-reviews',
     data() {
         return {
+            // name, description, filter, reviews move to the VueX Store
             name: 'Cigar Parties for Dummies',
             description: 'Host and plan the perfect cigar party for all your squirrelly friends',
-            showDescription: true,
-            showForm: false,
             filter: 0,
-            newReview: {},
-            backgroundColor: 'transparent',
             reviews: [
                 {
                     reviewer: 'Malcolm Gladwell',
@@ -152,24 +132,30 @@ export default {
                     title: 'And I thought I could write',
                     review:
                     "There are a lot of good, solid tips in this book. I don't want to ruin it, but prelighting all the cigars is worth the price of admission alone.",
-                    rating: 3,
+                    rating: 3
                 }
-            ]
+            ],
+            // showForm and newReviw move to AddReview.vue
+            showForm: false,
+            newReview: {},
         
         }
     },
     computed: {
+        // filteredReviews: move to ReviewList.vue
         filteredReviews() {
             return this.reviews.filter( review => {
                 return this.filter === 0 ? true : this.filter === review.rating;
             });
         },
+        // averageRating: move to AverageSummary.vue
         averageRating() {
             let sum = this.reviews.reduce( (currentSum, review) => {
                 return currentSum + review.rating;
             }, 0);
             return (sum / this.reviews.length).toFixed(2);
         },
+        // numberOfXStarReviews: no longer needed as they are handled by the StarSummary component
         numberOfOneStarReviews() {
             return this.numberOfReviews(1);
         },
@@ -185,17 +171,20 @@ export default {
         numberOfFiveStarReviews() {
             return this.numberOfReviews(5);
         },
+        // isFormValid: Move to AddReview.vue
         isFormValid() {
            return this.newReview.reviewer && this.newReview.title
                 && this.newReview.rating && this.newReview.review; 
         }
     },
     methods: {
+        // numberOfReviews: move to StarSummary.vue
         numberOfReviews(numOfStars) {
            return this.reviews.reduce( (currentCount, review) => {
                 return currentCount + (review.rating === numOfStars);
             }, 0);
         },
+        // addNewReview and resetForm: Move to AddReview.vue
         addNewReview() {
             this.reviews.unshift(this.newReview);
             this.resetForm();
@@ -203,22 +192,15 @@ export default {
         resetForm() {
             this.newReview = {};
             this.showForm = false;
-        },
-        changeBackgroundColor(event) {
-            this.backgroundColor = event.target.innerText;
-        },
-        changeAllReviews() {
-            this.reviews.forEach( review => {
-                review.title = 'test';
-            })
         }
-
     }
 }
 </script>
 
-<!-- CSS for this component -->
+
 <style scoped>
+
+/* Move these styles to App.vue */
 div.main {
     margin: 1rem 0;
 }
@@ -242,6 +224,13 @@ div.main div.well-display div.well span.amount {
     font-size: 2.5rem;
 }
 
+div.main div.well-display div.well span.amount:hover {
+    color: blue;
+    cursor: pointer;
+}
+
+
+/* Move these styles to ReviewDisplay.vue */
 div.main div.review {
     border: 1px black solid;
     border-radius: 6px;
@@ -276,6 +265,9 @@ div.main div.review.favorited {
     background-color: lightyellow;
 }
 
+
+
+/* Move these styles to AddReview.vue */
 div.form-element {
  margin-top: 10px;
 }
@@ -298,10 +290,7 @@ form > input[type=submit] {
  margin-right: 10px;
 }
 
-div.main div.well-display div.well span.amount:hover {
-    color: blue;
-    cursor: pointer;
-}
+
 </style>
 
 

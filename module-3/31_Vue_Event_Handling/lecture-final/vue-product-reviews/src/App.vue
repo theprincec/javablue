@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <product-reviews></product-reviews>
-    <add-email></add-email>
   </div>
 </template>
 
@@ -14,13 +13,11 @@
 
 <script>
 import ProductReviews from './components/ProductReviews.vue'
-import AddEmail from './components/AddEmail.vue'
 
 export default {
   name: 'App',
   components: {
-    ProductReviews,
-    AddEmail
+    ProductReviews
   }
 }
 </script>
