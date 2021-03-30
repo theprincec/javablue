@@ -20,7 +20,9 @@ export default {
     },
     computed: {
         filteredReviews() {
-            const reviews = this.$store.state.reviews;
+            const reviews = this.$store.state.products.find( 
+                product => product.id == this.$store.state.activeProduct
+            ).reviews;
             const filter = this.$store.state.filter;
             return reviews.filter( review => {
                 return filter === 0 ? true : filter === review.rating;

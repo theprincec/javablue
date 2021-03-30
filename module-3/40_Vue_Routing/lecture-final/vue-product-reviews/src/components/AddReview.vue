@@ -1,10 +1,6 @@
 <template>
     <div>
-        <div v-show="!showForm">
-            <a href="#" v-on:click.prevent="showForm = true">Add Review</a>
-        </div>
-
-        <form v-on:submit.prevent="addNewReview()" v-if="showForm">
+        <form v-on:submit.prevent="addNewReview()">
             <div class="form-element">
                 <label for="reviewer">Name:</label>
                 <input type="text" id="reviewer" v-model.trim="newReview.reviewer" />
@@ -52,8 +48,15 @@ export default {
     },
     methods: {
         addNewReview() {
+            const productId = this.$route.params.id;
+            this.newReview.id = productId;
             this.$store.commit("ADD_REVIEW", this.newReview);
             this.resetForm();
+            // Send the user back to the product page
+            // $router - gives access to the router
+            //   compared to $route, which gives access to the URL
+            // $router.push() changes to a new URL
+            this.$router.push({ name: 'product-detail', params: { id: productId}});
         },
         resetForm() {
             this.newReview = {
