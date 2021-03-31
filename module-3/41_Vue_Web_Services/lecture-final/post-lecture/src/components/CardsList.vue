@@ -67,7 +67,37 @@ export default {
         });
     },
     deleteBoard() {
-      
+      // Verify the user really wants to delete the board
+      // call the deleteBoard() service
+      // handle when the promise is fulfilled
+      //    Verify status is 200
+      //    tell the user the board was deleted
+      //    call the delete board mutation
+      //    route the user to the home page
+      // handle when the promise is rejected
+      //    handle when a response error (status code 4xx, 5xx)
+      //    handle when a request error (could not connect)
+      //    handle when an axios error
+      if (confirm("Are you sure you want to delete this board and all associated cards?  This action cannot be undone.")) {
+          boardsService.deleteBoard(this.boardId)
+            .then( response => {
+              if(response.status === 200) {
+                alert("Board deleted!");
+                this.$store.commit("DELETE_BOARD", this.boardId);
+                this.$router.push({ name: 'Home'});
+              }
+            })
+            .catch( error => {
+              if (error.reponse) {
+                this.errorMsg = "Error code returned: " + error.response.statusText;
+              }
+              else if (error.request) {
+                this.errorMsg = "Could not connect to server";
+              } else {
+                this.errorMsg = "Something else went wrong";
+              }
+            })
+      }
     }
   },
   created() {

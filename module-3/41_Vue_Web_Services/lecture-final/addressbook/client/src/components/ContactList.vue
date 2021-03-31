@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import contactService from '@/services/ContactService';
 
 export default {
     data() {
@@ -49,7 +50,10 @@ export default {
     },
     methods: {
         getAllContacts() {
-
+            contactService.getContacts()
+                .then( response => {
+                    this.contacts = response.data;
+                })
         },
         save() {
             if (this.newContact.contactId) {
@@ -59,15 +63,37 @@ export default {
             }
         },
         addContact() {
-
+            contactService.addContact(this.newContact)
+                .then( response => {
+                    if (response.status === 200) {
+                        this.getAllContacts();
+                    }
+                    this.newContact = {};
+                })
+                .catch ( err => console.error(err) );
         },
         updateContact() {
-
+            contactService.updateContact(this.newContact)
+                .then (response => {
+                    if (response.status === 200) {
+                        this.getAllContacts();
+                    }
+                    this.newContact = {};
+                })
+                .catch( err => console.error(err) );
         },
         deleteContact(id) {
-            // Console log is only here to stop the Vue Linter from complaining about id not being used
-            console.log(id)
+           contactService.deleteContact(id)
+            .then( response => {
+                if (response.status === 200) {
+                    this.getAllContacts();
+                }
+            })
+            .catch( err => console.error(err) );
         }
+    },
+    created() {
+        this.getAllContacts();
     }
 }
 </script>

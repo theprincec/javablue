@@ -14,18 +14,23 @@
       "id": 24635,
       "title": "My Kanban Board #3",
       "backgroundColor": "#35284f"
+    },
+    {
+      "title": "AnotherBoard",
+      "backgroundColor": "#82219f",
+      "id": 90586
     }
   ],
   "cards": [
     {
-      "id": 20699,
       "boardId": 90584,
       "title": "Sleek input bypassing",
       "description": "Consequatur ipsam quaerat veniam atque ab assumenda modi autem. Nihil eos et voluptate ut. Iure nobis quas distinctio et eaque maxime voluptas velit. Voluptatibus quia alias et consequuntur consequuntur et aspernatur sed. Deleniti hic laudantium ut ipsa atque dolorum et quo. Ut nisi quidem saepe porro est.",
+      "status": "Planned",
+      "tag": "Design",
       "avatar": "https://cdn.fakercloud.com/avatars/mashaaaaal_128.jpg",
       "date": "Mar 10th 2021",
-      "status": "Planned",
-      "tag": "Design"
+      "id": 20699
     },
     {
       "id": 73059,
