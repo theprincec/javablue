@@ -66,6 +66,7 @@ export default {
       };
 
       if (this.cardID === 0) {
+
         // add
         boardsService
           .addCard(newCard)
@@ -77,11 +78,14 @@ export default {
           .catch(error => {
             this.handleErrorResponse(error, "adding");
           });
+
       } else {
+
         // update
         newCard.id = this.cardID;
         newCard.avatar = this.card.avatar;
         newCard.date = this.card.date;
+        
         boardsService
           .updateCard(newCard)
           .then(response => {
@@ -92,25 +96,37 @@ export default {
           .catch(error => {
             this.handleErrorResponse(error, "updating");
           });
+
       }
     },
     cancelForm() {
       this.$router.push(`/board/${this.$route.params.boardID}`);
     },
+
+
     handleErrorResponse(error, verb) {
+      
       if (error.response) {
+
         this.errorMsg =
           "Error " + verb + " card. Response received was '" +
           error.response.statusText +
           "'.";
-      } else if (error.request) {
+      } 
+      
+      else if (error.request) {
+
         this.errorMsg =
           "Error " + verb + " card. Server could not be reached.";
-      } else {
+      } 
+      
+      else {
         this.errorMsg =
           "Error " + verb + " card. Request could not be created.";
       }
     }
+
+
   },
   created() {
     if (this.cardID != 0) {
