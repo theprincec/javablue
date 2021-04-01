@@ -10,7 +10,7 @@
 
 <script>
 import BestSellerList from '@/components/BestSellerList.vue';
-import NewReleasesList from '@/components/NewReleasesList.vue'
+import NewReleasesList from '@/components/NewReleasesList.vue';
 // import BestSellerList from '../components/BestSellerList.vue';
 // import NewReleasesList from '../components/NewReleasesList.vue';
 
@@ -25,6 +25,6 @@ export default {
 </script>
 
 
-        NewReleasesList<style>
+<style>
 
 </style>

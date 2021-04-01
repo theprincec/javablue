@@ -4,20 +4,21 @@
     <nav>
       <router-link v-bind:to="{name: 'my-books'}"> MY BOOKS </router-link>
     </nav>
+
     <router-view/>
-    <home/>
+    
     
   </div>
 </template>
 
 <script>
-import Home from './views/Home.vue'
+//import Home from './views/Home.vue';
 
 export default {
   name: 'app',
-  components: {
-    Home
-  }
+  // components: {
+  //   Home
+  // }
 }
 </script>
 
