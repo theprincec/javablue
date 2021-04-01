@@ -8,7 +8,7 @@
         <relativePath /> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.techelevator</groupId>
-    <artifactId>m341-vue-ws-lecture-server-final</artifactId>
+    <artifactId>m341-vue-ws-lecture-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>

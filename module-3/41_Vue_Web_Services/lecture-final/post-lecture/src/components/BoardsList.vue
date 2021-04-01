@@ -59,6 +59,42 @@ export default {
       });
     },
     saveNewBoard() {
+      // set isLoading to true
+      // use the boardService addBoard() to save the board
+      // On Promise fulfilled -> 
+      //    make sure it is status 201
+      //    close the form (showAddBoard)
+      //    reset the newBoard object
+      //    stop the loading animation
+      // On Promise rejected ->
+      //    hanle a response error (Http Status codes)
+      //    handle a request error (could not connect)
+      //    handle other errors 
+      this.isLoading = true;
+      boardsService.addBoard(this.newBoard)
+        .then( response => {    // handles when promise fulfilled (success)
+          if (response.status == 201) {
+            this.retrieveBoards();
+            this.showAddBoard = false;
+            this.newBoard = {
+              title: '',
+              backgroundColor: this.randomBackgroundColor()
+            }
+            this.loading = false;
+          }
+        })
+        .catch( error => {     // handles when promise rejected (fails)
+          if (error.response) {   // if error.response exists, then it is a response error (status code 4xx, 5xx)
+            this.errorMsg = "Response error: " + error.response.statusText;
+          }
+          else if (error.request) { // if error.request exists, then a connection error
+            this.errorMsg = "Could not connect";
+          }
+          else {  // if neither error.response or error.request exist, then an axios error
+            this.errorMsg = "Something else went wrong";
+          }
+          this.loading = false;
+        })
 
     },
     randomBackgroundColor() {

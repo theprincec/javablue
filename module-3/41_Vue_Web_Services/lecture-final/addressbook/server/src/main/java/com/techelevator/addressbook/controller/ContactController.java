@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.techelevator.addressbook.model.Contact;
 import com.techelevator.addressbook.model.ContactDao;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/contacts")
 public class ContactController {
