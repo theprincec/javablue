@@ -1,13 +1,23 @@
 <template>
   <div id="app">
-    <router-view />
+    <h1>THE PAGE</h1>
+    <nav>
+      <router-link v-bind:to="{name: 'my-books'}"> MY BOOKS </router-link>
+    </nav>
+    <router-view/>
+    <home/>
+    
   </div>
 </template>
 
 <script>
+import Home from './views/Home.vue'
 
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    Home
+  }
 }
 </script>
 
