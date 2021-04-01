@@ -44,7 +44,7 @@
           v-bind:class="{ disabled: user.status === 'Disabled' }"
         >
           <td>
-            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" />
+            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" @click="addIdToList(user.id)" />
           </td>
           <td>{{ user.firstName }}</td>
           <td>{{ user.lastName }}</td>
@@ -52,38 +52,38 @@
           <td>{{ user.emailAddress }}</td>
           <td>{{ user.status }}</td>
           <td>
-            <button class="btnEnableDisable">Enable or Disable</button>
+            <button class="btnEnableDisable" @click.prevent="flipStatus(user.id)"> {{ user.status=='Active' ? 'Disable':'Enable' }} </button>
           </td>
         </tr>
       </tbody>
     </table>
 
     <div class="all-actions">
-      <button>Enable Users</button>
+      <button @click="useList">Enable Users</button>
       <button>Disable Users</button>
       <button>Delete Users</button>
     </div>
 
-    <button>Add New User</button>
+    <button @click.prevent="changeUserForm">Add New User</button>
 
-    <form id="frmAddNewUser">
+    <form id="frmAddNewUser" v-show="showUserForm">
       <div class="field">
         <label for="firstName">First Name:</label>
-        <input type="text" name="firstName" />
+        <input type="text" name="firstName" v-model.trim="newUser.firstName" />
       </div>
       <div class="field">
         <label for="lastName">Last Name:</label>
-        <input type="text" name="lastName" />
+        <input type="text" name="lastName" v-model.trim="newUser.lastName"/>
       </div>
       <div class="field">
         <label for="username">Username:</label>
-        <input type="text" name="username" />
+        <input type="text" name="username" v-model.trim="newUser.username"/>
       </div>
       <div class="field">
         <label for="emailAddress">Email Address:</label>
-        <input type="text" name="emailAddress" />
+        <input type="text" name="emailAddress" v-model.trim="newUser.emailAddress"/>
       </div>
-      <button type="submit" class="btn save">Save User</button>
+      <button type="submit" class="btn save" @click.prevent="saveUser">Save User</button>
     </form>
   </div>
 </template>
@@ -93,6 +93,7 @@ export default {
   name: "user-list",
   data() {
     return {
+      showUserForm: false,
       filter: {
         firstName: "",
         lastName: "",
@@ -108,6 +109,7 @@ export default {
         emailAddress: "",
         status: "Active"
       },
+      selectedUserIDs: [],
       users: [
         {
           id: 1,
@@ -160,9 +162,50 @@ export default {
       ]
     };
   },
-  methods: {},
+  methods: {
+    addIdToList(id){
+      const userIndex = this.users.findIndex( user => user.id==id ); 
+      this.selectedUserIDs.push(this.users[userIndex].id);//list of IDs
+    },
+    useList(event){
+      //this.selectedUserIDs;
+      if (event.target.innerText.toLowerCase == "Enable Users".toLowerCase){ //sets case to enable user
+        this.selectedUserIDs.find(value =>{
+          this.users[value].id = 'Active';
+        })
+        
+        
+        //this.selectedUserIDs.forEach( value => this.users.id== value ?  = 'Active' );
+      }
+    },
+    flipStatus(id){
+      const userIndex = this.users.findIndex( user => user.id==id );
+      if (this.users[userIndex].status == 'Disabled') {
+        this.users[userIndex].status = 'Active';
+      } else {
+        this.users[userIndex].status = 'Disabled'; 
+      }
+    },
+    changeUserForm(){
+      this.showUserForm = !this.showUserForm;
+    },
+    saveUser(){
+      this.users.push(this.newUser); // add to user list
+      this.newUser={}; //clears new user fields setting equal to empty
+      this.changeUserForm; //disappears form
+    }
+    // ,
+    // enableTextMethod(){
+    //   if (this.user.status=='Active'){
+    //     document.getElementById("enabled-button").innerText="Disable";
+    //   } else {
+    //     document.getElementById("enabled-button").innerText="Enable";
+    //   }
+    // },
+
+  },
   computed: {
-    filteredList() {
+    filteredList(){
       let filteredUsers = this.users;
       if (this.filter.firstName != "") {
         filteredUsers = filteredUsers.filter((user) =>
@@ -199,8 +242,13 @@ export default {
       }
       return filteredUsers;
     }
+    // ,
+    // enabledText(){
+    //   return this.enableTextMethod(); 
+    // }
   }
-};
+}
+
 </script>
 
 <style scoped>

@@ -68,6 +68,13 @@ export default {
             name: 'Cigar Parties for Dummies',
             description: 'Host and plan the perfect cigar party for all your squirrelly friends',
             showDescription: true,
+            filter: {
+                firstName: "",
+                lastName: "",
+                userame: "",
+                emailAddress: "",
+                status: ""
+            }
             reviews: [
                 {
                     reviewer: 'Malcolm Gladwell',
@@ -102,6 +109,11 @@ export default {
         }
     },
     computed: {
+        filteredList(){
+            let filteredUsers = this.users;
+            if (this.filter.)
+
+        },
         averageRating() {
             let sum = this.reviews.reduce( (currentSum, review) => {
                 return currentSum + review.rating;

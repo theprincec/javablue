@@ -16,7 +16,7 @@
         <td><input type="text" id="usernameFilter" v-model="filter.username"/></td>
         <td><input type="text" id="emailFilter" v-model="filter.emailAddress"/></td>
         <td>
-          <select id="statusFilter" v-model="filter.status" v-bind:class="{ disabled: user.status=='Disabled' }">
+          <select id="statusFilter" v-model="filter.status" v-bind:class="{ disabled: filter.status=='Disabled' }">
             <option value="">Show All</option>
             <option value="Active">Active</option>
             <option value="Disabled">Disabled</option>
@@ -24,12 +24,12 @@
         </td>
       </tr>
       <!-- user listing goes here -->
-      <tr class="table" v-for="user of users" v-bind:key="user.id" >  
-        <th> {{user.firstName}} </th>
-        <th> {{user.lastName}} </th>
-        <th> {{user.username}} </th>
-        <th> {{user.emailAddress}} </th>
-        <th> {{user.staus}}  </th>
+      <tr class="table" v-for="user of filteredList" v-bind:key="user.username" v-bind:class="{disabled: user.status=='Disabled'}" >  
+        <td> {{user.firstName}} </td>
+        <td> {{user.lastName}} </td>
+        <td> {{user.username}} </td>
+        <td> {{user.emailAddress}} </td>
+        <td> {{user.staus}}  </td>
       </tr>
 
 
@@ -57,36 +57,34 @@ export default {
         emailAddress: '', 
         status: ''
       }
-        
-      
     }
 
     },
   computed: {
       filteredList(){
         let filteredUsers = this.users;
-        if (this.filter.firstName != '') {
+        if (this.filter.firstName != "") {
           filteredUsers = filteredUsers.filter( (value)=> 
               value.firstName.toLowerCase()
-              .includes(this.filter.toLowerCase())
+              .includes(this.filter.firstName.toLowerCase())
           );
-        } if (this.filter.lastName != '') {
+        } if (this.filter.lastName != "") {
           filteredUsers = filteredUsers.filter( (value)=> 
               value.lastName.toLowerCase()
-              .includes(this.filter.toLowerCase())
+              .includes(this.filter.lastName.toLowerCase())
           );
-        } if (this.filter.username != '') {
+        } if (this.filter.username != "") {
           filteredUsers = filteredUsers.filter( (value)=> 
               value.username.toLowerCase()
-              .includes(this.filter.toLowerCase())
+              .includes(this.filter.username.toLowerCase())
           );
-        } if (this.filter.emailAddress != '') {
+        } if (this.filter.emailAddress != "") {
           filteredUsers = filteredUsers.filter( (value)=> 
               value.emailAddress.toLowerCase()
-              .includes(this.filter.toLowerCase())
+              .includes(this.filter.emailAddress.toLowerCase())
           );
         }
-        if (this.filter.staus != '') {
+        if (this.filter.status != "") {
           filteredUsers = filteredUsers.filter( (value)=> 
               value.status == this.filter.status
           );
