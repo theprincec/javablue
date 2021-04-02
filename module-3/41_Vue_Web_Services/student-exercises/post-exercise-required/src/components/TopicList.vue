@@ -29,6 +29,7 @@
 
 <script>
 import topicService from "@/services/TopicService.js";
+import TopicService from '../services/TopicService';
 
 export default {
   name: "topic-list",
@@ -38,7 +39,13 @@ export default {
         this.$store.commit("SET_TOPICS", response.data);
       });
     },
-    deleteTopic(id) {}
+    deleteTopic(id) {
+      TopicService.deleteTopic(id).then(response =>{
+        if (response.status==200){
+          this.getTopics();
+        }
+      })
+    }
   },
   created() {
     this.getTopics();

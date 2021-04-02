@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import TopicService from '../services/TopicService';
 import topicService from "../services/TopicService";
 
 export default {
@@ -24,7 +25,14 @@ export default {
     };
   },
   methods: {
-    saveTopic() {}
+    saveTopic(topic) {
+      TopicService.add(topic)
+        .then(response =>{
+          if (response.status==201){
+            this.$router.push('/');
+          }
+        })
+    }
   }
 };
 </script>
